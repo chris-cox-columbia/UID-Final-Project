@@ -1,0 +1,46 @@
+.learn_circle{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    border: 1px solid dimgrey;
+    font-size: 50px;
+    color: black;
+    text-align: center;
+    display: inline;
+    padding: 0px 15px;
+}
+.drink_title{
+    padding: 0px 30px;
+    font-size: 35px;
+    display: inline;
+}
+.drink_number_name{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+}
+.drink_name{
+    color: dimgrey;
+}
+.side_bar{
+    padding: 30px 0px;
+}
+.side_image{
+    border: 2px solid dimgrey;
+    width: 100%;
+}
+.main_image{
+    width: 100%;
+}
+.ingred_list{
+    padding-top: 40px;
+    text-transform: uppercase;
+}
+.ingred_name{
+    font-size: 32px;
+}
+.ingred_amount{
+    font-size: 27px;
+    color: dimgrey;
+}

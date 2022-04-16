@@ -4,16 +4,16 @@ drinksData = {"1":{"id":"1",
                                     "Born in Manhattan in 1940s",
                                     "Often served in copper mug, which takes on the cold temperature and keeps the drink cold"],
                     "ingredient_number":"three",
-                    "ingrdient_list":["Ginger Beer","Lime Slice","Vodka"],
+                    "ingredient_list":["Lime Slice","Ginger Beer","Vodka"],
                     "ingredient_details":{
-                                    "Ginger Beer":{
-                                                    "quantity":"two parts",
-                                                    "hexcode":"#FFB200"
-                                                    },
                                     "Lime Slice":{
                                             "quantity":"Garnish",
                                             "hexcode":"#DCFF00"
                                             },
+                                    "Ginger Beer":{
+                                                    "quantity":"Two parts",
+                                                    "hexcode":"#FFB200"
+                                                    },
                                     "Vodka":{
                                             "quantity":"One Part",
                                             "hexcode":"#FFFFFF"

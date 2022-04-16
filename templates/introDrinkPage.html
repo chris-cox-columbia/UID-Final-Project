@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'welcome.js') }}"></script>
+<link rel="stylesheet" href="{{url_for('static', filename='learn.css')}}">
+
+<script>
+    let drinkInfo = {{drinkInfo|tojson}}
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div>
+                <div class="learn_circle">
+                    <span>{{drinkInfo.id}}</span>
+                </div>
+                <div class="drink_title">
+                    <span class="drink_number_name">{{drinkInfo.ingredient_number}} Ingredient</span>
+                    <span class="drink_name"> - {{drinkInfo.name}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-5">
+                     <img src="{{ url_for('static', filename = drinkInfo.id + '-graphic.png') }}" class="main_image">
+                </div>
+                <div class="col-md-6">
+                    {% for i in drinkInfo.ingredient_list %}
+                        <div class="ingred_list">
+                            <span class="ingred_name">{{i}}</span>
+                            <span class="ingred_amount"> - {{drinkInfo.ingredient_details[i].quantity}}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="side_bar">
+                <img src="{{ url_for('static', filename = drinkInfo.id + '-basic.png') }}" class="side_image">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
