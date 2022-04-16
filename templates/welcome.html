@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+<script type="text/javascript" src="{{url_for('static', filename='welcome.js')}}"></script>
+
+<div class="container">
+    <class>
+        Welcome to Bottom's up! Here we teach you how to make cool drinks!
+    </class>
+</div>
+
+{% endblock %}
