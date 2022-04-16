@@ -10,14 +10,14 @@ def welcome():
 
 
 @app.route('/learn/intro/<drinkId>', methods=['GET','POST'])
-def renderPlayer(drinkId=None):
+def renderDrinkInfo(drinkId=None):
     global questions
     drinkInfo = drinksData[drinkId]
     return render_template("introDrinkPage.html", drinkInfo=drinkInfo)
 
 
 @app.route('/learn/video/<drinkId>', methods=['GET','POST'])
-def renderPlayer(drinkId=None):
+def renderDrinkVideo(drinkId=None):
     global questions
     drinkInfo = drinksData[drinkId]
     return render_template("videoDrinkPage.html", drinkInfo=drinkInfo)
@@ -25,7 +25,7 @@ def renderPlayer(drinkId=None):
 
 
 @app.route('/quiz/<questionId>', methods=['GET','POST'])
-def renderPlayer(questionId=None):
+def renderQuestion(questionId=None):
     global questions
 
     questionDetails = questions[questionId]
