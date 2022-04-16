@@ -11,14 +11,14 @@ def welcome():
 
 @app.route('/learn/intro/<drinkId>', methods=['GET','POST'])
 def renderDrinkInfo(drinkId=None):
-    global questions
+    global drinksData
     drinkInfo = drinksData[drinkId]
     return render_template("introDrinkPage.html", drinkInfo=drinkInfo)
 
 
 @app.route('/learn/video/<drinkId>', methods=['GET','POST'])
 def renderDrinkVideo(drinkId=None):
-    global questions
+    global drinksData
     drinkInfo = drinksData[drinkId]
     return render_template("videoDrinkPage.html", drinkInfo=drinkInfo)
 
