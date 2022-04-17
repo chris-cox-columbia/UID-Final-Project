@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<script type="text/javascript" src="{{ url_for('static', filename = '') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 <link rel="stylesheet" href="{{url_for('static', filename='learn.css')}}">
 
@@ -24,6 +24,10 @@
             </div>
             <div class="row">
                 <div class="col-md-7">
+                    <div class="media">
+                        <iframe width=100% height=350px src={{info.video}} title="YouTube video of European leader speaker in selected language"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="col-md-5 instruct_box">
                     {% for i in range(0, drinkInfo.procedure|length) %}
@@ -43,17 +47,23 @@
     </div>
     <div class="row">
         <div class="col-md-4 bottom_button">
-            <button type="button" class="button_design"
-                onclick="window.location.href='{{ url_for( 'renderDrinkInfo', drinkId=drinkInfo.id) }}';">Back</button>
+            <button type="button" class="button_design" id="back_button_video">Back</button>
         </div>
         <div class="col-md-4 bottom_button">
-            <button type="button" class="button_design">Extra Info</button>
+            <button type="button" class="button_design" id="extra_info_button">Extra Info</button>
         </div>
         <div class="col-md-4 bottom_button">
-            <button type="button" class="button_design"
-                    onclick="window.location.href='{{ url_for( 'welcome') }};">Next</button>
+            <button type="button" class="button_design" id="next_button_video">Next</button>
         </div>
     </div>
+</div>
+
+<div id="dialog" class="discard_box" title="Extra Info">
+    {% for i in range(0, drinkInfo.description|length) %}
+    <div class="info_box">
+        <span class="instruct">- {{drinkInfo.description[i]}}</span>
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
