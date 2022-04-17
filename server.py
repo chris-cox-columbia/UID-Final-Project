@@ -93,13 +93,13 @@ def check_drag_and_drop(questionId, user_answers):
             response['missing'].append(answer)
             is_correct = False
 
-        
+
     # if is_correct:
     #     score += 1
 
 
     return response
-        
+
 
 def check_ratios(questionId, user_answers):
     global questions
@@ -135,12 +135,12 @@ def check_free_form(questionId):
 def update_visit_time(endpoint):
     current_time = time.time()
     visit_times[endpoint] = current_time
-    
-    
+
+
 @app.route('/visit_times', methods=['GET'])
 def get_times():
     return jsonify(visit_times)
-        
+
 
 
 if __name__ == "__main__":
