@@ -3,6 +3,8 @@ from flask import Flask
 from flask import render_template, Response, request, jsonify, redirect, url_for
 from database import drinksData, questions
 app = Flask(__name__)
+score = 0
+
 
 @app.route('/')
 def welcome():
@@ -41,5 +43,75 @@ def renderQuestion(questionId=None):
     if (type=="free form"):
         return render_template("freeForm.html",questionDetails=questionDetails)
 
+
+# check the users answer for a drag and drop question
+def check_drag_and_drop(questionId, user_answers):
+    global questions
+    global score
+    correct_answers = questions[questionId]['answer']
+    is_correct = True
+    response = {
+        'correct': [],
+        'incorrect': [],
+        'missing': []
+    }
+    # check if each answer selection is correct
+    for answer in user_answers:
+        if answer in correct_answers:
+            response['correct'].append(answer)
+        else:
+            response['incorrect'].append(answer)
+            is_correct = False
+
+    # check for missing answers in the user response
+    for answer in correct_answers:
+        if answer not in user_answers:
+            response['missing'].append(answer)
+            is_correct = False
+
+        
+    # if is_correct:
+    #     score += 1
+
+
+    return response
+        
+
+def check_ratios(questionId, user_answers):
+    global questions
+    correct_answer = dict(zip(questions[questionId]['options'], questions[questionId]['answer']))
+    response = {
+        'correct': [],
+        'incorrect': [],
+    }
+    is_correct = True
+
+    for ingredient, ratio in user_answers.items():
+        if correct_answer[ingredient] == ratio:
+            response['correct'].append(ingredient)
+        else:
+            response['incorrect'].append((ingredient, correct_answer[ingredient]))
+            is_correct = False
+
+    # if is_correct:
+    #     score += 1
+
+    return response
+
+
+def check_free_form(questionId):
+    global questions
+    correct_answer = questions[questionId]['answer']
+
+
+    return correct_answer
+    
+    
+    
+    
+        
+
+
 if __name__ == "__main__":
+
     app.run(debug=True)
