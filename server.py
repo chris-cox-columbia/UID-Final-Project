@@ -1,18 +1,23 @@
 from contextlib import redirect_stderr
+import time
 from flask import Flask
 from flask import render_template, Response, request, jsonify, redirect, url_for
 from database import drinksData, questions
 app = Flask(__name__)
+
 score = 0
+visit_times = {}
 
 
 @app.route('/')
 def welcome():
+    update_visit_time('/')
     return render_template("welcome.html")
 
 
 @app.route('/learn/intro/<drinkId>', methods=['GET','POST'])
 def renderDrinkInfo(drinkId=None):
+    update_visit_time(f"/learn/intro/{drinkId}")
     global drinksData
     drinkInfo = drinksData[drinkId]
     return render_template("introDrinkPage.html", drinkInfo=drinkInfo)
@@ -20,6 +25,7 @@ def renderDrinkInfo(drinkId=None):
 
 @app.route('/learn/video/<drinkId>', methods=['GET','POST'])
 def renderDrinkVideo(drinkId=None):
+    update_visit_time(f"/learn/video/{drinkId}")
     global drinksData
     drinkInfo = drinksData[drinkId]
     return render_template("videoDrinkPage.html", drinkInfo=drinkInfo)
@@ -28,8 +34,8 @@ def renderDrinkVideo(drinkId=None):
 
 @app.route('/quiz/<questionId>', methods=['GET','POST'])
 def renderQuestion(questionId=None):
+    update_visit_time(f"/quiz/{questionId}")
     global questions
-
     questionDetails = questions[questionId]
 
     type = questionDetails["type"]
@@ -105,10 +111,16 @@ def check_free_form(questionId):
 
 
     return correct_answer
+
+
+def update_visit_time(endpoint):
+    current_time = time.time()
+    visit_times[endpoint] = current_time
     
     
-    
-    
+@app.route('/visit_times', methods=['GET'])
+def get_times():
+    return jsonify(visit_times)
         
 
 
