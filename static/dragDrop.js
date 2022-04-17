@@ -5,7 +5,8 @@ var drink = []
 // initialize
 
 function initialize(list){
-  ingredients = list
+  ingredients = list.options
+  id = list.id
 }
 
 // Rendering ingredient options
@@ -101,7 +102,7 @@ function check(submission){
 
   $.ajax({
       type: "POST",
-      url: "/quiz/1",
+      url: "/quiz/"+id,
       dataType : "json",
       contentType: "application/json; charset=utf-8",
       data : JSON.stringify(hold),
@@ -135,7 +136,7 @@ function buttonAnswer(){
 
 // on ready
 $(document).ready(function(){
-  initialize(questionDetails.options)
+  initialize(questionDetails)
   pushIngredients()
   pushDrink()
   buttonAnswer()
