@@ -9,8 +9,6 @@
 //   "campari"
 // ]
 
-var ingredients = questionDetails.options
-
 var drink = []
 
 // Rendering ingredient options
@@ -92,6 +90,7 @@ $(document).on('mouseenter', '.drag', function(k) {
 $(document).ready(function(){
   pushIngredients()
   pushDrink()
+  console.log(questionDetails)
 
   $("#ingredientTarget").droppable({
 

@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'freeForm.js') }}"></script>
+
+
+<script>
+    let questionDetails = {{questionDetails|tojson}}
+  </script>
+
+<div class="row">
+</div>
+<!-- row to track which quesiton the user is on -->
+<div class="row" id="question_tracker">
+    <span>Quiz</span> Question {{questionDetails.id}}/ 9<br>
+    {{questionDetails.question}}
+</div>
+<!-- row to do the dragging and dropping -->
+<div class="row" id="interface">
+  <div class="col-6">
+    <div id="drinkTarget">Ingredient Input</div>
+    <input id ="ing0" type="text" value="Ginger Beer"> 
+    <br>
+    <input id ="ing1" type="text" value="Lime Slice">
+    <br>
+    <input id ="ing2" type="text" value="Gin">
+    <br>
+    <input id ="ing3" type="text">
+    <br>
+    <input id ="ing4" type="text">
+  </div>
+  <div class="col-6">
+    <div id="ingredientTarget">Ratios</div>
+    <input id ="rat0" type="text" value="2">
+    <br>
+    <input id ="rat1" type="text" value="0">
+    <br>
+    <input id ="rat2" type="text" value="1">
+    <br>
+    <input id ="rat3" type="text">
+    <br>
+    <input id ="rat4" type="text">
+  </div>
+  
+  <button id="submit">Submit my answers</button>
+  <br>
+  <button id="clear">Clear my answers</button>
+</div>
+
+<div class="row" id="feedback">
+</div>
+
+
+<div class="row" id="next">
+  Next problem
+</div>
+{% endblock %}
+
+
+
+
+
+
+

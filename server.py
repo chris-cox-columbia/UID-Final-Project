@@ -2,7 +2,7 @@ from contextlib import redirect_stderr
 import time
 from flask import Flask
 from flask import render_template, Response, request, jsonify, redirect, url_for
-from database import drinksData, questions
+from database import drinksData, questions, studentAnswers
 app = Flask(__name__)
 
 score = 0
@@ -50,7 +50,22 @@ def renderQuestion(questionId=None):
         return render_template("freeForm.html",questionDetails=questionDetails)
 
 
-# check the users answer for a drag and drop question
+@app.route('/studentAnswers',methods=['POST'])
+def postAnswers():
+    global studentAnswers
+
+    answerObj = request.get_json()
+    print(answerObj)
+
+    id = answerObj["id"]
+
+    studentAnswers[id] = answerObj
+
+    print(studentAnswers)
+    additionInfo = studentAnswers[id]
+    return jsonify(additionInfo=additionInfo)
+
+
 def check_drag_and_drop(questionId, user_answers):
     global questions
     global score
