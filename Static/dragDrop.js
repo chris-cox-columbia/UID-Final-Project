@@ -27,6 +27,10 @@ function addIngredients(object){
     innerHTML: object
   })
 
+  $(x).attr({
+    "data-name": object
+  })
+
   $("#ingredientList").append(x)
 }
 
@@ -56,11 +60,19 @@ function addDrink(object){
 // clear div on drag
 
 function emptyIngredients(){
-  $("#emptyIngredients").empty()
+  $("#ingredientList").empty()
 }
 
 function emptyDrink(){
   $("#drink").empty()
+}
+
+function remove(array, object){
+  for(var i=0; i<array.length; i++){
+    if(array[i] == object){
+      array.splice(i,1)
+    }
+  }
 }
 
 // make dynamically draggable
@@ -79,4 +91,45 @@ $(document).on('mouseenter', '.drag', function(k) {
 $(document).ready(function(){
   pushIngredients()
   pushDrink()
+
+  $("#ingredientTarget").droppable({
+
+    drop: function(event, ui){
+      //MODEL
+      var item = $(ui.draggable).data("name");
+      ingredients.push(item)
+      // DELETE FROM OLD LIST
+      remove(drink, item)
+
+      console.log("Unselecting: " + item)
+
+      //VIEW
+      emptyIngredients()
+      emptyDrink()
+
+      pushIngredients()
+      pushDrink()
+    }
+  })
+
+    $("#drinkTarget").droppable({
+
+      drop: function(event, ui){
+        //MODEL
+        var item = $(ui.draggable).data("name");
+        drink.push(item)
+        // DELETE FROM OLD LIST
+        remove(ingredients, item)
+
+        console.log("Selecting: " + item)
+
+        //VIEW
+        emptyIngredients()
+        emptyDrink()
+
+        pushIngredients()
+        pushDrink()
+      }
+
+  })
 })
