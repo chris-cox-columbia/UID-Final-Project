@@ -96,8 +96,8 @@ def check_drag_and_drop(questionId, user_answers):
             is_correct = False
 
 
-    # if is_correct:
-    #     score += 1
+    if is_correct:
+        score += 1
 
 
     return response
@@ -120,8 +120,8 @@ def check_ratios(questionId, user_answers):
             response['incorrect'].append(item)
             is_correct = False
 
-    # if is_correct:
-    #     score += 1
+    if is_correct:
+        score += 1
 
     return response
 
@@ -143,7 +143,10 @@ def update_visit_time(endpoint):
 def get_times():
     return jsonify(visit_times)
 
-
+@app.route('/score', methods=['GET'])
+def get_score():
+    global score
+    return jsonify(score)
 
 if __name__ == "__main__":
 
