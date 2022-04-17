@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
 {% block content %}
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'ratios.js') }}"></script>
@@ -10,7 +14,7 @@
 </script>
 
 <div class="row">
-  </div>
+</div>
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
     <span>Quiz</span> Question {{questionDetails.id}}/9<br>

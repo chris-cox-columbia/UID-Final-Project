@@ -1,5 +1,5 @@
 function initialize(list){
-  ingredients = list
+  ingredients = list.options
 }
 
 // render ingredients
@@ -11,18 +11,12 @@ function pushIngredients(){
 }
 
 function addIngredients(object){
-  var x = $("<div>")
-  $(x).prop({
-    class: "drag",
-    id: object,
-    innerHTML: object
-  })
-
+  var x = $("<div>" + object + "</div>")
   $("#main_row").append(x)
 }
 
 // on ready
 
 $(document).ready(function(){
-  initialize(questionDetails.options)
+  initialize(questionDetails)
 })
