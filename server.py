@@ -41,13 +41,31 @@ def renderQuestion(questionId=None):
     type = questionDetails["type"]
 
     if (type=="drag and drop"):
-        return render_template("dragDrop.html", questionDetails=questionDetails)
+        if request.method == "GET":
+            return render_template("dragDrop.html", questionDetails=questionDetails)
+        else:
+            user_data = request.form
+            user_answers = user_data["answer"].split(",")
+            result = check_drag_and_drop(questionId, user_answers)
+            return jsonify(result)
 
     if (type=="ratios"):
-        return render_template("ratios.html",questionDetails=questionDetails)
+        if request.method == "GET":
+            return render_template("ratios.html",questionDetails=questionDetails)
+        else:
+            user_data = dict(request.form)
+            print("data", user_data)
+            result = check_ratios(questionId, user_data)
+            return jsonify(result)
     
     if (type=="free form"):
-        return render_template("freeForm.html",questionDetails=questionDetails)
+        if request.method == "GET":
+            return render_template("freeForm.html",questionDetails=questionDetails)
+        else:
+            user_data = request.form
+            user_answers = user_data["answer"]
+            result = check_free_form(questionId)
+            return jsonify(result)
 
 
 # check the users answer for a drag and drop question
@@ -93,10 +111,11 @@ def check_ratios(questionId, user_answers):
     is_correct = True
 
     for ingredient, ratio in user_answers.items():
-        if correct_answer[ingredient] == ratio:
+        if correct_answer[ingredient] == int(ratio):
             response['correct'].append(ingredient)
         else:
-            response['incorrect'].append((ingredient, correct_answer[ingredient]))
+            item = ingredient, correct_answer[ingredient]
+            response['incorrect'].append(item)
             is_correct = False
 
     # if is_correct:
