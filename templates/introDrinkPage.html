@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<script type="text/javascript" src="{{ url_for('static', filename = 'welcome.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = '') }}"></script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 <link rel="stylesheet" href="{{url_for('static', filename='learn.css')}}">
 
 <script>
@@ -22,14 +23,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-5">
+                <div class="col-md-4 image_column">
                      <img src="{{ url_for('static', filename = drinkInfo.id + '-graphic.png') }}" class="main_image">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8 ingred_box">
                     {% for i in drinkInfo.ingredient_list %}
-                        <div class="ingred_list">
+                        <div class="ingred_list_{{drinkInfo.ingredient_number}}">
                             <span class="ingred_name">{{i}}</span>
                             <span class="ingred_amount"> - {{drinkInfo.ingredient_details[i].quantity}}</span>
                         </div>
@@ -41,6 +40,19 @@
             <div class="side_bar">
                 <img src="{{ url_for('static', filename = drinkInfo.id + '-basic.png') }}" class="side_image">
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design"
+                onclick="window.location.href='{{ url_for( 'welcome') }}';">Back</button>
+        </div>
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design">Extra Info</button>
+        </div>
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design"
+                    onclick="window.location.href='{{ url_for( 'renderDrinkVideo', drinkId=drinkInfo.id) }}';">Next</button>
         </div>
     </div>
 </div>

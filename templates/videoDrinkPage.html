@@ -1,10 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
 
-</body>
-</html>
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = '') }}"></script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link rel="stylesheet" href="{{url_for('static', filename='learn.css')}}">
+
+<script>
+    let drinkInfo = {{drinkInfo|tojson}}
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div>
+                <div class="learn_circle">
+                    <span>{{drinkInfo.id}}</span>
+                </div>
+                <div class="drink_title">
+                    <span class="drink_number_name">{{drinkInfo.ingredient_number}} Ingredient</span>
+                    <span class="drink_name"> - {{drinkInfo.name}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5 instruct_box">
+                    {% for i in range(0, drinkInfo.procedure|length) %}
+                        <div class="ingred_list_four">
+                           <span class="instruct">{{i+1}}) {{drinkInfo.procedure[i]}}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="side_bar">
+                <img src="{{ url_for('static', filename = drinkInfo.id + '-basic.png') }}" class="side_image">
+                <img src="{{ url_for('static', filename = drinkInfo.id + '-graphic.png') }}" class="side_image">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design"
+                onclick="window.location.href='{{ url_for( 'renderDrinkInfo', drinkId=drinkInfo.id) }}';">Back</button>
+        </div>
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design">Extra Info</button>
+        </div>
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design"
+                    onclick="window.location.href='{{ url_for( 'welcome') }};">Next</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -9,16 +9,19 @@
     text-align: center;
     display: inline;
     padding: 0px 15px;
+    font-family: 'Montserrat';
 }
 .drink_title{
     padding: 0px 30px;
     font-size: 35px;
     display: inline;
+    font-family: 'Montserrat';
 }
 .drink_number_name{
     font-weight: bold;
     text-transform: uppercase;
     color: black;
+    font-family: 'Montserrat';
 }
 .drink_name{
     color: dimgrey;
@@ -30,12 +33,25 @@
     border: 2px solid dimgrey;
     width: 100%;
 }
+.image_column{
+    padding-top: 40px;
+}
 .main_image{
     width: 100%;
 }
-.ingred_list{
-    padding-top: 40px;
+.ingred_box{
+    padding-top: 60px;
+    font-family: 'Montserrat';
     text-transform: uppercase;
+}
+.ingred_list_three{
+    padding-bottom: 12%;
+}
+.ingred_list_four{
+    padding-bottom: 7%;
+}
+.ingred_list_five{
+    padding-bottom: 3%;
 }
 .ingred_name{
     font-size: 32px;
@@ -43,4 +59,22 @@
 .ingred_amount{
     font-size: 27px;
     color: dimgrey;
+}
+.bottom_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.button_design{
+    padding: 10px;
+    font-family: 'Montserrat';
+    border-radius: 10px;
+}
+.instruct_box{
+    padding-top: 30px;
+    font-family: 'Montserrat';
+}
+.instruct{
+    font-size: 20px;
 }
