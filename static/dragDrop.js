@@ -1,13 +1,15 @@
-var ingredients = [
-  "gin",
-  "vodka",
-  "soda water",
-  "lemon juice",
-  "ginger beer",
-  "lime slice",
-  "tequila",
-  "campari"
-]
+// var ingredients = [
+//   "gin",
+//   "vodka",
+//   "soda water",
+//   "lemon juice",
+//   "ginger beer",
+//   "lime slice",
+//   "tequila",
+//   "campari"
+// ]
+
+var ingredients = questionDetails.options
 
 var drink = []
 
