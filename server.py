@@ -44,9 +44,11 @@ def renderQuestion(questionId=None):
         if request.method == "GET":
             return render_template("dragDrop.html", questionDetails=questionDetails)
         else:
-            user_data = request.form
+            user_data = request.get_json()
+            print(user_data)
             user_answers = user_data["answer"].split(",")
             result = check_drag_and_drop(questionId, user_answers)
+            print(result)
             return jsonify(result)
 
     if (type=="ratios"):
@@ -57,7 +59,7 @@ def renderQuestion(questionId=None):
             print("data", user_data)
             result = check_ratios(questionId, user_data)
             return jsonify(result)
-    
+
     if (type=="free form"):
         if request.method == "GET":
             return render_template("freeForm.html",questionDetails=questionDetails)

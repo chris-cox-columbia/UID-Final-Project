@@ -85,19 +85,26 @@ $(document).on('mouseenter', '.drag', function(k) {
 
 // check answers
 
-function check(ingredients){
+function toString(answer){
+  var newString = ""
+  $.each(answer, function(index, object){
+    newString += object + ","
+  })
 
-  // var hold = {}
-  // hold.quesitonId=questionDetails.id
-  // hold.ingredients = ingredients
-  // console.log(hold)
+  return newString
+}
+
+function check(submission){
+
+  var hold = {}
+  hold.answer=toString(submission)
 
   $.ajax({
       type: "POST",
-      url: "check_drag_and_drop",
+      url: "/quiz/1",
       dataType : "json",
       contentType: "application/json; charset=utf-8",
-      data : JSON.stringify(ingredients),
+      data : JSON.stringify(hold),
       success: function(result){
         displayAnswer(result)
       },
@@ -118,7 +125,7 @@ function displayAnswer(answer){
 function buttonAnswer(){
   let button = $('<button class="btn-primary">Check answer</button>')
   $(button).click(function(){
-    check(ingredients)
+    check(drink)
   })
   $("#answer").append(button)
 }
