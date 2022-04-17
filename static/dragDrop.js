@@ -106,6 +106,7 @@ function check(submission){
       contentType: "application/json; charset=utf-8",
       data : JSON.stringify(hold),
       success: function(result){
+        console.log(result)
         displayAnswer(result)
       },
       error: function(request, status, error){
@@ -119,7 +120,9 @@ function check(submission){
 
 function displayAnswer(answer){
   $("#answer").empty()
-  $("#answer").append(answer)
+  $("#answer").append("Correct: " + answer["correct"])
+  $("#answer").append("Incorrect: " + answer["incorrect"])
+  $("#answer").append("Missing: " + answer["missing"])
 }
 
 function buttonAnswer(){
