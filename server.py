@@ -47,7 +47,7 @@ questions = {"1":{"id":"1",
                             "Ginger Beer",
                             "Lime Slice",],
                     "next":"2"
-                    },   
+                    },
             "2":{"id":"2",
                   "type":"ratios",
                   "question":"Give the ingredient ratio in a Moscow Mule (garnishes have ratio of 0):",
@@ -58,7 +58,7 @@ questions = {"1":{"id":"1",
                             ],
                     "answer":[2,0,1],
                     "next":"2"
-                    }, 
+                    },
             "3":{"id":"3",
                   "type":"free form",
                   "question":"List the ingredients and their ratios of a Moscow Mule: (not all boxes must be used)",
@@ -66,7 +66,7 @@ questions = {"1":{"id":"1",
                   "answer":{"Ginger Beer":"2",
                             "Lime Slice":"0",
                             "Gin":"0"}
-                },            
+                },
             }
 
 @app.route('/')
@@ -87,7 +87,7 @@ def renderPlayer(questionId=None):
 
     if (type=="ratios"):
         return render_template("ratios.html",questionDetails=questionDetails)
-    
+
     if (type=="free form"):
         return render_template("freeForm.html",questionDetails=questionDetails)
 
