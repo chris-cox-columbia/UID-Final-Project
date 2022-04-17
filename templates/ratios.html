@@ -5,19 +5,20 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'ratios.js') }}"></script>
 
 <script>
-  // from backend
+  let questionDetails = {{questionDetails|tojson}}
+  console.log(questionDetails)
 </script>
 
 <div class="row">
   </div>
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
-    <span>Quiz</span> Question X/X<br>
-    Give the ingredient ratio in a Moscow Mule (garnishes have ratio of 0):
+    <span>Quiz</span> Question {{questionDetails.id}}/9<br>
+    {{questionDetails.question}}
   </div>
   <!-- row to do assignment of ratios -->
   <div class="row">
-    <div class="row" id="site_row">
+    <div class="row" id="main_row">
       <div class="col-12">
         <label>Ginger Beer</label>
         <input type="text" placeholder="e.g. 3" id="ginger"><br>

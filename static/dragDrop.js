@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // var ingredients = [
 //   "gin",
 //   "vodka",
@@ -8,8 +9,17 @@
 //   "tequila",
 //   "campari"
 // ]
+=======
+
+>>>>>>> 208369c887c1b32f45239a56f92e3a2506bbc5cd
 
 var drink = []
+
+// initialize
+
+function initialize(list){
+  ingredients = list
+}
 
 // Rendering ingredient options
 
@@ -86,11 +96,63 @@ $(document).on('mouseenter', '.drag', function(k) {
   // ALL CREDIT HERE: https://stackoverflow.com/questions/17941834/how-to-make-dynamically-added-list-elements-draggable-in-jquery
 })
 
+// check answers
+
+function toString(answer){
+  var newString = ""
+  $.each(answer, function(index, object){
+    newString += object + ","
+  })
+
+  return newString
+}
+
+function check(submission){
+
+  var hold = {}
+  hold.answer=toString(submission)
+
+  $.ajax({
+      type: "POST",
+      url: "/quiz/1",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      data : JSON.stringify(hold),
+      success: function(result){
+        displayAnswer(result)
+      },
+      error: function(request, status, error){
+          console.log("Error");
+          console.log(request)
+          console.log(status)
+          console.log(error)
+      }
+  });
+}
+
+function displayAnswer(answer){
+  $("#answer").empty()
+  $("#answer").append(answer)
+}
+
+function buttonAnswer(){
+  let button = $('<button class="btn-primary">Check answer</button>')
+  $(button).click(function(){
+    check(drink)
+  })
+  $("#answer").append(button)
+}
+
 // on ready
 $(document).ready(function(){
+  initialize(questionDetails.options)
   pushIngredients()
   pushDrink()
+<<<<<<< HEAD
   console.log(questionDetails)
+=======
+  buttonAnswer()
+>>>>>>> 208369c887c1b32f45239a56f92e3a2506bbc5cd
 
   $("#ingredientTarget").droppable({
 
