@@ -86,7 +86,6 @@ $(document).on('mouseenter', '.drag', function(k) {
   // ALL CREDIT HERE: https://stackoverflow.com/questions/17941834/how-to-make-dynamically-added-list-elements-draggable-in-jquery
 })
 
-
 // on ready
 $(document).ready(function(){
   pushIngredients()
