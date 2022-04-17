@@ -87,17 +87,17 @@ $(document).on('mouseenter', '.drag', function(k) {
 
 function check(ingredients){
 
-  var hold = {}
-  hold.quesitonId=questionDetails.id
-  hold.ingredients = ingredients
-  console.log(hold)
+  // var hold = {}
+  // hold.quesitonId=questionDetails.id
+  // hold.ingredients = ingredients
+  // console.log(hold)
 
   $.ajax({
       type: "POST",
       url: "check_drag_and_drop",
       dataType : "json",
       contentType: "application/json; charset=utf-8",
-      data : JSON.stringify(hold),
+      data : JSON.stringify(ingredients),
       success: function(result){
         displayAnswer(result)
       },
