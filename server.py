@@ -134,7 +134,8 @@ def check_ratios(questionId, user_answers):
 
     for ingredient, ratio in user_answers.items():
         if correct_answer[ingredient] == ratio:
-            response['correct'].append(ingredient)
+            item = ingredient, correct_answer[ingredient]
+            response['correct'].append(item)
         else:
             item = ingredient, correct_answer[ingredient]
             response['incorrect'].append(item)

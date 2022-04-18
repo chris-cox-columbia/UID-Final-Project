@@ -34,7 +34,7 @@ function buttonAnswer(){
 function buildAnswer(){
   let submission = {}
   $.each(ingredients, function(index, object){
-    answer[object] = $.trim( $("#"+index+"").val())
+    submission[object] = $.trim( $("#"+index+"").val())
   })
 
   return submission
@@ -65,7 +65,11 @@ function check(submission){
 function compare(submission, result){
   $.each(submission, function(index, object){
     let suggestedRatio = object
-    console.log(suggestedRatio)
+    if(suggestedRatio==result[index]){
+      console.log("Correct")
+    } else {
+      console.log("Incorrect")
+    }
   })
 }
 
