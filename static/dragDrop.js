@@ -1,4 +1,17 @@
+<<<<<<< HEAD
+// var ingredients = [
+//   "gin",
+//   "vodka",
+//   "soda water",
+//   "lemon juice",
+//   "ginger beer",
+//   "lime slice",
+//   "tequila",
+//   "campari"
+// ]
+=======
 
+>>>>>>> 208369c887c1b32f45239a56f92e3a2506bbc5cd
 
 var drink = []
 
@@ -139,7 +152,11 @@ $(document).ready(function(){
   initialize(questionDetails)
   pushIngredients()
   pushDrink()
+<<<<<<< HEAD
+  console.log(questionDetails)
+=======
   buttonAnswer()
+>>>>>>> 208369c887c1b32f45239a56f92e3a2506bbc5cd
 
   $("#ingredientTarget").droppable({
 

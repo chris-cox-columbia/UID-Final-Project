@@ -175,10 +175,10 @@ questions = {"1":{"id":"1",
             "6":{"id":"6",
                   "type":"free form",
                   "question":"List the ingredients and their ratios of a Campari Flamingo: (not all boxes must be used)",
-                  "emphasize":{"Campari Flamingo"},
+                  "emphasize":["Campari Flamingo"],
                   "answer":{"Ginger Beer":"2",
                             "Lime Slice":"0",
-                            "Gin":"0"},
+                            "Gin":"1"},
                    "next":"7"
                 },
             "7":{"id":"7",
@@ -207,7 +207,7 @@ questions = {"1":{"id":"1",
             "8":{"id":"8",
                   "type":"ratios",
                   "question":"Give the ingredient ratio in a Mai Tai (garnishes have ratio of 0):",
-                  "emphasize":{"Mai Tai"},
+                  "emphasize":["Mai Tai"],
                   "options":["Orgeat",
                             "Dark Rum",
                             "White Rum",
@@ -228,3 +228,12 @@ questions = {"1":{"id":"1",
                    "next":""
                 },
 }
+
+
+
+studentAnswers = {}
+
+
+
+
+
