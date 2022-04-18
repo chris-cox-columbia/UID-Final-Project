@@ -50,7 +50,7 @@ function check(submission){
       data : JSON.stringify(submission),
       success: function(result){
         console.log(result)
-        compare(submission, result)
+        compare(result)
         displayAnswer(result)
       },
       error: function(request, status, error){
@@ -62,15 +62,29 @@ function check(submission){
   });
 }
 
-function compare(submission, result){
-  $.each(submission, function(index, object){
-    let suggestedRatio = object
-    if(suggestedRatio==result[index]){
-      console.log("Correct")
-    } else {
-      console.log("Incorrect")
-    }
+function compare(result){
+
+  $.each(result["correct"], function(index, object){
+
+    $.each(ingredients, function(index2, object2){
+      if(object2==object[0]){makeGreen(index2)}
+    })
   })
+
+  $.each(result["incorrect"], function(index, object){
+
+    $.each(ingredients, function(index2, object2){
+      if(object2==object[0]){makeRed(index2)}
+    })
+  })
+}
+
+function makeGreen(index){
+  $("#"+index).css({'background-color':'lightgreen'})
+}
+
+function makeRed(index){
+  $("#"+index).css({'background-color':'red'})
 }
 
 // display answers
