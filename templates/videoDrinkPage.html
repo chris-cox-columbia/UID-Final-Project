@@ -24,6 +24,10 @@
             </div>
             <div class="row">
                 <div class="col-md-7">
+                    <div class="media video">
+                        <iframe width=100% height=350px src={{drinkInfo.video_link}} title="YouTube video of drink making"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="col-md-5 instruct_box">
                     {% for i in range(0, drinkInfo.procedure|length) %}
