@@ -227,12 +227,8 @@ questions = {"1":{"id":"1",
                             "Lime Juice":"2"},
                    "next":""
                 },
-<<<<<<< HEAD
 }
 
 
 
 studentAnswers = {}
-=======
-}
->>>>>>> parent of a5b3bf1 (Merge branch 'main' of https://github.com/chris-cox-columbia/UID-Final-Project)
