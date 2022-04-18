@@ -83,7 +83,7 @@ $(document).ready(function(){
     })
   
   let id = questionDetails.id;
-  $('#back_button').click(function(){
+  $("#back_button").click(function(){
       if(id=="1"){
         let url = '/learn/video/3'
         window.location.replace(url);
