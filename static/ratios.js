@@ -51,7 +51,6 @@ function check(submission){
       success: function(result){
         console.log(result)
         compare(result)
-        displayAnswer(result)
       },
       error: function(request, status, error){
           console.log("Error");
@@ -85,13 +84,6 @@ function makeGreen(index){
 
 function makeRed(index){
   $("#"+index).css({'background-color':'red'})
-}
-
-// display answers
-function displayAnswer(answer){
-  $("#answer").empty()
-  $("#answer").append("Correct: " + answer["correct"])
-  $("#answer").append("Incorrect: " + answer["incorrect"])
 }
 
 // on ready

@@ -19,7 +19,7 @@ function addIngredients(object){
   var x = $("<div>")
   $(x).prop({
     class: "drag",
-    id: object,
+    id: object.replace(/\s/g, ""),
     innerHTML: object
   })
 
@@ -105,7 +105,8 @@ function check(submission){
       contentType: "application/json; charset=utf-8",
       data : JSON.stringify(hold),
       success: function(result){
-        displayAnswer(result)
+        console.log(result)
+        compare(result)
       },
       error: function(request, status, error){
           console.log("Error");
@@ -116,9 +117,22 @@ function check(submission){
   });
 }
 
-function displayAnswer(answer){
-  $("#answer").empty()
-  $("#answer").append(answer)
+function compare(result){
+  $.each(result["correct"], function(index, object){
+    makeGreen(object.replace(/\s/g, ""))
+  })
+
+  $.each(result["missing"], function(index, object){
+    makeRed(object.replace(/\s/g, ""))
+  })
+}
+
+function makeGreen(index){
+  $("#"+index).css({'background-color':'lightgreen'})
+}
+
+function makeRed(index){
+  $("#"+index).css({'background-color':'red'})
 }
 
 function buttonAnswer(){
@@ -134,6 +148,7 @@ $(document).ready(function(){
   initialize(questionDetails.options)
   pushIngredients()
   pushDrink()
+  buttonAnswer()
 
   let next = questionDetails.next;
   $("#next_button").click(function(){
@@ -146,7 +161,7 @@ $(document).ready(function(){
         window.location.replace(url);
       }
     })
-  
+
   let id = questionDetails.id;
   $('#back_button').click(function(){
       if(id=="1"){
