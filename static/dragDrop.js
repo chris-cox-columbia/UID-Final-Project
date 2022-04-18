@@ -1,21 +1,10 @@
-// var ingredients = [
-//   "gin",
-//   "vodka",
-//   "soda water",
-//   "lemon juice",
-//   "ginger beer",
-//   "lime slice",
-//   "tequila",
-//   "campari"
-// ]
 
 var drink = []
 
 // initialize
 
 function initialize(list){
-  ingredients = list.options
-  id = list.id
+  ingredients = list
 }
 
 // Rendering ingredient options
@@ -111,12 +100,11 @@ function check(submission){
 
   $.ajax({
       type: "POST",
-      url: "/quiz/"+id,
+      url: "/quiz/1",
       dataType : "json",
       contentType: "application/json; charset=utf-8",
       data : JSON.stringify(hold),
       success: function(result){
-        console.log(result)
         displayAnswer(result)
       },
       error: function(request, status, error){
@@ -130,9 +118,7 @@ function check(submission){
 
 function displayAnswer(answer){
   $("#answer").empty()
-  $("#answer").append("Correct: " + answer["correct"])
-  $("#answer").append("Incorrect: " + answer["incorrect"])
-  $("#answer").append("Missing: " + answer["missing"])
+  $("#answer").append(answer)
 }
 
 function buttonAnswer(){
@@ -145,10 +131,9 @@ function buttonAnswer(){
 
 // on ready
 $(document).ready(function(){
-  initialize(questionDetails)
+  initialize(questionDetails.options)
   pushIngredients()
   pushDrink()
-  console.log(questionDetails)
 
   $("#ingredientTarget").droppable({
 

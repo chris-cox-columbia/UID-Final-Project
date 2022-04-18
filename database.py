@@ -133,7 +133,7 @@ questions = {"1":{"id":"1",
                   "emphasize":["Moscow Mule"],
                   "answer":{"Ginger Beer":"2",
                             "Lime Slice":"0",
-                            "Gin":"0"},
+                            "Gin":"1"},
                    "next":"4"
                 },
             "4":{"id":"4",
@@ -176,9 +176,9 @@ questions = {"1":{"id":"1",
                   "type":"free form",
                   "question":"List the ingredients and their ratios of a Campari Flamingo: (not all boxes must be used)",
                   "emphasize":{"Campari Flamingo"},
-                  "answer":{"Ginger Beer":"2",
+                  "answer":{"Ginger Beer":"1",
                             "Lime Slice":"0",
-                            "Gin":"0"},
+                            "Gin":"2"},
                    "next":"7"
                 },
             "7":{"id":"7",
@@ -227,12 +227,6 @@ questions = {"1":{"id":"1",
                             "Lime Juice":"2"},
                    "next":""
                 },
-<<<<<<< HEAD
 }
-
-
 
 studentAnswers = {}
-=======
-}
->>>>>>> parent of a5b3bf1 (Merge branch 'main' of https://github.com/chris-cox-columbia/UID-Final-Project)
