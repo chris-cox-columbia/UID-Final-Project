@@ -5,3 +5,15 @@
 .fail{
     color: white;
 }
+
+.bottom_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.button_design{
+    padding: 10px;
+    font-family: 'Montserrat';
+    border-radius: 10px;
+}

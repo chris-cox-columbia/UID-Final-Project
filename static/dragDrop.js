@@ -135,6 +135,33 @@ $(document).ready(function(){
   pushIngredients()
   pushDrink()
 
+  let next = questionDetails.next;
+  $("#next_button").click(function(){
+      if(next==""){
+        let url='/congratulations'
+        window.location.replace(url);
+        }
+      else{
+        let url='/quiz/'+next
+        window.location.replace(url);
+      }
+    })
+  
+  let id = questionDetails.id;
+  $('#back_button').click(function(){
+      if(id=="1"){
+        let url = '/learn/video/3'
+        window.location.replace(url);
+      }
+      else{
+        let prev = (parseInt(id)-1).toString()
+        let url = '/quiz/'+prev
+        window.location.replace(url);
+      }
+    })
+
+
+
   $("#ingredientTarget").droppable({
 
     drop: function(event, ui){

@@ -31,6 +31,10 @@ def renderDrinkVideo(drinkId=None):
     return render_template("videoDrinkPage.html", drinkInfo=drinkInfo)
 
 
+@app.route('/congratulations', methods=['GET'])
+def congrats():
+    return render_template("congrats.html")
+
 
 @app.route('/quiz/<questionId>', methods=['GET','POST'])
 def renderQuestion(questionId=None):
