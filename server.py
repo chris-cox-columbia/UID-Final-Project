@@ -55,7 +55,7 @@ def renderQuestion(questionId=None):
         if request.method == "GET":
             return render_template("ratios.html",questionDetails=questionDetails)
         else:
-            user_data = dict(request.form)
+            user_data = dict(request.get_json())
             print("data", user_data)
             result = check_ratios(questionId, user_data)
             return jsonify(result)
@@ -128,7 +128,7 @@ def check_ratios(questionId, user_answers):
     is_correct = True
 
     for ingredient, ratio in user_answers.items():
-        if correct_answer[ingredient] == int(ratio):
+        if correct_answer[ingredient] == ratio:
             response['correct'].append(ingredient)
         else:
             item = ingredient, correct_answer[ingredient]

@@ -119,12 +119,12 @@ questions = {"1":{"id":"1",
             "2":{"id":"2",
                   "type":"ratios",
                   "question":"Give the ingredient ratio in a Moscow Mule (garnishes have ratio of 0):",
-                  "emphasize":{"Moscow Mule"},
+                  "emphasize":["Moscow Mule"],
                   "options":["Gin",
                             "Lime Slice",
                             "Ginger Beer"
                             ],
-                    "answer":[2,0,1],
+                    "answer":["2","0","1"],
                     "next":"3"
                     },
             "3":{"id":"3",
@@ -232,8 +232,3 @@ questions = {"1":{"id":"1",
 
 
 studentAnswers = {}
-
-
-
-
-
