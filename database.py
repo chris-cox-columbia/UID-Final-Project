@@ -119,18 +119,18 @@ questions = {"1":{"id":"1",
             "2":{"id":"2",
                   "type":"ratios",
                   "question":"Give the ingredient ratio in a Moscow Mule (garnishes have ratio of 0):",
-                  "emphasize":{"Moscow Mule"},
+                  "emphasize":["Moscow Mule"],
                   "options":["Gin",
                             "Lime Slice",
                             "Ginger Beer"
                             ],
-                    "answer":[2,0,1],
+                    "answer":["2","0","1"],
                     "next":"3"
                     },
             "3":{"id":"3",
                   "type":"free form",
                   "question":"List the ingredients and their ratios of a Moscow Mule: (not all boxes must be used)",
-                  "emphasize":{"Moscow Mule"},
+                  "emphasize":["Moscow Mule"],
                   "answer":{"Ginger Beer":"2",
                             "Lime Slice":"0",
                             "Gin":"0"},
@@ -169,16 +169,16 @@ questions = {"1":{"id":"1",
                             "Lime Juice",
                             "Campari",
                             ],
-                    "answer":[4,3,2,1],
+                    "answer":["4","3","2","1"],
                     "next":"6"
                     },
             "6":{"id":"6",
                   "type":"free form",
                   "question":"List the ingredients and their ratios of a Campari Flamingo: (not all boxes must be used)",
-                  "emphasize":["Campari Flamingo"],
+                  "emphasize":{"Campari Flamingo"},
                   "answer":{"Ginger Beer":"2",
                             "Lime Slice":"0",
-                            "Gin":"1"},
+                            "Gin":"0"},
                    "next":"7"
                 },
             "7":{"id":"7",
@@ -207,13 +207,13 @@ questions = {"1":{"id":"1",
             "8":{"id":"8",
                   "type":"ratios",
                   "question":"Give the ingredient ratio in a Mai Tai (garnishes have ratio of 0):",
-                  "emphasize":["Mai Tai"],
+                  "emphasize":{"Mai Tai"},
                   "options":["Orgeat",
                             "Dark Rum",
                             "White Rum",
                              "Curaçao",
                              "Lime Juice"],
-                    "answer":[1,1,4,2,2],
+                    "answer":["1","1","4","2","2"],
                     "next":"9"
                     },
             "9":{"id":"9",
@@ -227,13 +227,12 @@ questions = {"1":{"id":"1",
                             "Lime Juice":"2"},
                    "next":""
                 },
+<<<<<<< HEAD
 }
 
 
 
 studentAnswers = {}
-
-
-
-
-
+=======
+}
+>>>>>>> parent of a5b3bf1 (Merge branch 'main' of https://github.com/chris-cox-columbia/UID-Final-Project)
