@@ -25,11 +25,11 @@
 <div class="row" id="interface">
   <div class="col-6">
     <div id="drinkTarget">Ingredient Input</div>
-    <input id ="ing0" type="text" value="Ginger Beer"> 
+    <input id ="ing0" type="text"> 
     <br>
-    <input id ="ing1" type="text" value="Lime Slice">
+    <input id ="ing1" type="text">
     <br>
-    <input id ="ing2" type="text" value="Gin">
+    <input id ="ing2" type="text">
     <br>
     <input id ="ing3" type="text">
     <br>
@@ -37,11 +37,11 @@
   </div>
   <div class="col-6">
     <div id="ingredientTarget">Ratios</div>
-    <input id ="rat0" type="text" value="2">
+    <input id ="rat0" type="text">
     <br>
-    <input id ="rat1" type="text" value="0">
+    <input id ="rat1" type="text">
     <br>
-    <input id ="rat2" type="text" value="1">
+    <input id ="rat2" type="text">
     <br>
     <input id ="rat3" type="text">
     <br>
@@ -57,8 +57,15 @@
 </div>
 
 
-<div class="row" id="next">
-  Next problem
+<div class="row">
+  <div class="col-md-4 bottom_button">
+      <button type="button" class="button_design" id="back_button">Back</button>
+  </div>
+  <div class="col-md-4 bottom_button">
+  </div>
+  <div class="col-md-4 bottom_button">
+      <button type="button" class="button_design" id="next_button">Next</button>
+  </div>
 </div>
 {% endblock %}
 

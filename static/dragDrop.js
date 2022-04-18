@@ -1,25 +1,10 @@
-<<<<<<< HEAD
-// var ingredients = [
-//   "gin",
-//   "vodka",
-//   "soda water",
-//   "lemon juice",
-//   "ginger beer",
-//   "lime slice",
-//   "tequila",
-//   "campari"
-// ]
-=======
-
->>>>>>> 208369c887c1b32f45239a56f92e3a2506bbc5cd
 
 var drink = []
 
 // initialize
 
 function initialize(list){
-  ingredients = list.options
-  id = list.id
+  ingredients = list
 }
 
 // Rendering ingredient options
@@ -115,12 +100,11 @@ function check(submission){
 
   $.ajax({
       type: "POST",
-      url: "/quiz/"+id,
+      url: "/quiz/1",
       dataType : "json",
       contentType: "application/json; charset=utf-8",
       data : JSON.stringify(hold),
       success: function(result){
-        console.log(result)
         displayAnswer(result)
       },
       error: function(request, status, error){
@@ -134,9 +118,7 @@ function check(submission){
 
 function displayAnswer(answer){
   $("#answer").empty()
-  $("#answer").append("Correct: " + answer["correct"])
-  $("#answer").append("Incorrect: " + answer["incorrect"])
-  $("#answer").append("Missing: " + answer["missing"])
+  $("#answer").append(answer)
 }
 
 function buttonAnswer(){
@@ -149,14 +131,36 @@ function buttonAnswer(){
 
 // on ready
 $(document).ready(function(){
-  initialize(questionDetails)
+  initialize(questionDetails.options)
   pushIngredients()
   pushDrink()
-<<<<<<< HEAD
-  console.log(questionDetails)
-=======
-  buttonAnswer()
->>>>>>> 208369c887c1b32f45239a56f92e3a2506bbc5cd
+
+  let next = questionDetails.next;
+  $("#next_button").click(function(){
+      if(next==""){
+        let url='/congratulations'
+        window.location.replace(url);
+        }
+      else{
+        let url='/quiz/'+next
+        window.location.replace(url);
+      }
+    })
+  
+  let id = questionDetails.id;
+  $('#back_button').click(function(){
+      if(id=="1"){
+        let url = '/learn/video/3'
+        window.location.replace(url);
+      }
+      else{
+        let prev = (parseInt(id)-1).toString()
+        let url = '/quiz/'+prev
+        window.location.replace(url);
+      }
+    })
+
+
 
   $("#ingredientTarget").droppable({
 
