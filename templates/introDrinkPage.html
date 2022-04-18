@@ -24,7 +24,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4 image_column">
-                     <img src="{{ url_for('static', filename = drinkInfo.id + '-graphic.png') }}" class="main_image">
+                    <img src="{{ url_for('static', filename = drinkInfo.id + '-graphic.png') }}" class="main_image">
                 </div>
                 <div class="col-md-8 ingred_box">
                     {% for i in drinkInfo.ingredient_list %}

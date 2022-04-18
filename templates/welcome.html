@@ -1,20 +1,20 @@
-{% extends "layout.html" %}
-{% block title %}Index{% endblock %}
-{% block head %}
-  {{ super() }}
-{% endblock %}
-
-
+{% extends 'layout.html' %}
 {% block content %}
-<script type="text/javascript" src="{{url_for('static', filename='welcome.js')}}"></script>
 
-<div class="container">
-    <div>
-        Welcome to Bottom's up! Here we teach you how to make cool drinks!
-    </div>
-    <button id="start">
-      Get started!
-    </button>
-</div>
+
+<br>
+<h1 style="text-align:center" font-weight="700" >Welcome to Bottoms up!</h1>
+<br>
+<h5 style="text-align:center">Tired of drinking vodka sodas and vodka cranberries? <br>
+    Here are Bottoms Up!, we'll equip you with three delicious cocktails for your next wild night. <br>
+    Walk to the bar with confidence and be the cool bartender at every party you attend.</h5>
+<br>
+<br>
+
+
+<a href="/learn/intro/1">
+<center><button class="button button1">Get Started</button></center>
+</a>    
+
 
 {% endblock %}
