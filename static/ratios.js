@@ -63,7 +63,10 @@ function check(submission){
 }
 
 function compare(submission, result){
-
+  $.each(submission, function(index, object){
+    let suggestedRatio = object
+    console.log(suggestedRatio)
+  })
 }
 
 // display answers

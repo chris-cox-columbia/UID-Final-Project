@@ -124,6 +124,7 @@ def check_drag_and_drop(questionId, user_answers):
 
 def check_ratios(questionId, user_answers):
     global questions
+    global score
     correct_answer = dict(zip(questions[questionId]['options'], questions[questionId]['answer']))
     response = {
         'correct': [],
