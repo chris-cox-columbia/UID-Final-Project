@@ -17,3 +17,8 @@
     font-family: 'Montserrat';
     border-radius: 10px;
 }
+
+.ratios{
+    position: relative;
+    left: 50px;
+}
