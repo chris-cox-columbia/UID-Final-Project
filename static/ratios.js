@@ -59,7 +59,7 @@ function check(submission){
 }
 
 // display answers
-function displayAnswer(result){
+function displayAnswer(answer){
   $("#answer").empty()
   $("#answer").append("Correct: " + answer["correct"])
   $("#answer").append("Incorrect: " + answer["incorrect"])
