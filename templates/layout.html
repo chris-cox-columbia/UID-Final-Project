@@ -13,23 +13,35 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='learn.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
     </head>
 
+    <title>Bottoms Up!</title>
+    
     <body>
-        <div>
-            <nav class="navbar">
-                <a class="navbar-brand">Home</a>
-                <a class="navbar-brand">Level 1</a>
-                <a class="navbar-brand">Level 2</a>
-                <a class="navbar-brand">Level 3</a>
-                <a class="navbar-brand">Quiz</a>
-            </nav>
-        </div>
-
-        <div class="container">
+        
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lavender">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" style="padding-right: 50px;">Bottoms Up!</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav justify-content-between w-50">
+                    <a class="nav-link" href="/learn/intro/1">Level 1</a>
+                    <a class="nav-link" href="/learn/intro/2">Level 2</a>
+                    <a class="nav-link" href="/learn/intro/3">Level 3</a>
+                    <a class="nav-link" href="/quiz/">Quiz</a>
+                </div>
+            </div>
+            </div>
+        </nav>
+        
+        <div class="a-container">   
             {% block content %}
             {% endblock %}
         </div>
-    </body>
+    </body>      
 </html>
