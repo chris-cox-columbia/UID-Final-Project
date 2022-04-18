@@ -2,7 +2,7 @@ from contextlib import redirect_stderr
 import time
 from flask import Flask
 from flask import render_template, Response, request, jsonify, redirect, url_for
-from database import drinksData, questions
+from database import drinksData, questions, studentAnswers
 app = Flask(__name__)
 
 score = 0
@@ -31,6 +31,10 @@ def renderDrinkVideo(drinkId=None):
     return render_template("videoDrinkPage.html", drinkInfo=drinkInfo)
 
 
+@app.route('/congratulations', methods=['GET'])
+def congrats():
+    return render_template("congrats.html")
+
 
 @app.route('/quiz/<questionId>', methods=['GET','POST'])
 def renderQuestion(questionId=None):
@@ -55,7 +59,7 @@ def renderQuestion(questionId=None):
         if request.method == "GET":
             return render_template("ratios.html",questionDetails=questionDetails)
         else:
-            user_data = dict(request.form)
+            user_data = dict(request.get_json())
             print("data", user_data)
             result = check_ratios(questionId, user_data)
             return jsonify(result)
@@ -70,7 +74,22 @@ def renderQuestion(questionId=None):
             return jsonify(result)
 
 
-# check the users answer for a drag and drop question
+@app.route('/studentAnswers',methods=['POST'])
+def postAnswers():
+    global studentAnswers
+
+    answerObj = request.get_json()
+    print(answerObj)
+
+    id = answerObj["id"]
+
+    studentAnswers[id] = answerObj
+
+    print(studentAnswers)
+    additionInfo = studentAnswers[id]
+    return jsonify(additionInfo=additionInfo)
+
+
 def check_drag_and_drop(questionId, user_answers):
     global questions
     global score
@@ -113,7 +132,7 @@ def check_ratios(questionId, user_answers):
     is_correct = True
 
     for ingredient, ratio in user_answers.items():
-        if correct_answer[ingredient] == int(ratio):
+        if correct_answer[ingredient] == ratio:
             response['correct'].append(ingredient)
         else:
             item = ingredient, correct_answer[ingredient]

@@ -9,9 +9,15 @@ function dialog_pop_up(){
       })
 }
 
-function next_button_video() {
+function next_button_video(drinkInfo) {
+      let next = drinkInfo.next
       $("#next_button_video").button().on("click", function () {
-            url = "/"
+            if(next==""){
+                  url = "/quiz/1"
+            }
+            else{
+                  url = "/learn/intro/"+next
+            }
             window.location.replace(url)
       });
 }
@@ -30,17 +36,23 @@ function next_button_intro() {
       });
 }
 
-function back_button_intro() {
+function back_button_intro(drinkInfo) {
+      let id = drinkInfo.id
       $("#back_button_intro").button().on("click", function () {
-            url = "/"
+            if(id=="1"){
+                  url = "/"
+            }
+            else{
+                  url = "/learn/video/"+(parseInt(id)-1).toString()
+            }
             window.location.replace(url)
       });
 }
 
 $(document).ready(function(){
-      next_button_video();
+      next_button_video(drinkInfo);
       back_button_video();
       next_button_intro();
-      back_button_intro();
+      back_button_intro(drinkInfo);
       dialog_pop_up();
 })

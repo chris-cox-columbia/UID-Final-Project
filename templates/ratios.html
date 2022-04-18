@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
 {% block content %}
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'ratios.js') }}"></script>
@@ -10,25 +14,34 @@
 </script>
 
 <div class="row">
-  </div>
+</div>
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
-    <span>Quiz</span> Question {{questionDetails.id}}/9<br>
+    <span>Quiz</span> -Question {{questionDetails.id}}/9<br>
     {{questionDetails.question}}
   </div>
   <!-- row to do assignment of ratios -->
   <div class="row">
     <div class="row" id="main_row">
       <div class="col-12">
-        <label>Ginger Beer</label>
-        <input type="text" placeholder="e.g. 3" id="ginger"><br>
+
       </div>
     </div>
   </div>
 
-  <!-- row for next problem -- I took some creative liberties here lol but can change -->
-  <div class="row" id="next">
-    Next problem
+  <!-- TEMPORARY TO CHECK ANSWER -->
+  <div class="row" id="answer">
   </div>
+
+  <div class="row">
+    <div class="col-md-4 bottom_button">
+        <button type="button" class="button_design" id="back_button">Back</button>
+    </div>
+    <div class="col-md-4 bottom_button">
+    </div>
+    <div class="col-md-4 bottom_button">
+        <button type="button" class="button_design" id="next_button">Next</button>
+    </div>
+</div>
 
 {% endblock %}
