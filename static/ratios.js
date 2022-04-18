@@ -12,29 +12,32 @@ function pushIngredients(){
 }
 
 function addIngredients(index, object){
-  var x = $("<div>" + object + "</div><br>")
-  var y = $('<input type="text" placeholder="e.g. 3" id="'+index+'"></input><br>')
-  $("#main_row").append(x)
-  $("#main_row").append(y)
+  let new_row = $('<div class="row">')
+  let x = $("<div class='col-4'>" + object + "</div>")
+  let y = $('<input type="text" placeholder="e.g. 3" id="'+index+'"></input><br>')
+  $(new_row).append(x)
+  $(new_row).append(y)
+
+  $("#main_row").append(new_row)
 }
 
 // check answer
 function buttonAnswer(){
   let button = $('<button class="btn-primary">Check answer</button>')
   $(button).click(function(){
-    let answer = buildAnswer()
-    check(answer)
+    let submission = buildAnswer()
+    check(submission)
   })
   $("#answer").append(button)
 }
 
 function buildAnswer(){
-  let answer = {}
+  let submission = {}
   $.each(ingredients, function(index, object){
     answer[object] = $.trim( $("#"+index+"").val())
   })
 
-  return answer
+  return submission
 }
 
 function check(submission){
@@ -47,6 +50,7 @@ function check(submission){
       data : JSON.stringify(submission),
       success: function(result){
         console.log(result)
+        compare(submission, result)
         displayAnswer(result)
       },
       error: function(request, status, error){
@@ -56,6 +60,10 @@ function check(submission){
           console.log(error)
       }
   });
+}
+
+function compare(submission, result){
+
 }
 
 // display answers
@@ -68,33 +76,6 @@ function displayAnswer(answer){
 // on ready
 
 $(document).ready(function(){
-  let next = questionDetails.next;
-  console.log(next)
-  $("#next_button").click(function(){
-      console.log("hello next")
-      if(next==""){
-        let url='/congratulations'
-        window.location.replace(url);
-        }
-      else{
-        let url='/quiz/'+next
-        window.location.replace(url);
-      }
-    })
-  
-  let id = questionDetails.id;
-  $("#back_button").click(function(){
-      if(id=="1"){
-        let url = '/learn/video/3'
-        window.location.replace(url);
-      }
-      else{
-        let prev = (parseInt(id)-1).toString()
-        let url = '/quiz/'+prev
-        window.location.replace(url);
-      }
-    })
-
   initialize(questionDetails)
   pushIngredients()
   buttonAnswer()
