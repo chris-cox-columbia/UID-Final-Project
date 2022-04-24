@@ -32,3 +32,22 @@
   width: 100%;
   font-family: 'Muli', sans-serif;
 }
+
+.answer_button{
+  border: 0px;
+  border-radius: 5px;
+  background-color: #F4DB90;
+  font-family: 'Muli', sans-serif;
+}
+
+#navigation{
+  font-family: 'Muli', sans-serif;
+}
+
+.quiz_button{
+  border: 0px;
+  background-color: #DDEEF8;
+  color: #465362;
+  font-family: 'Muli', sans-serif;
+  border-radius: 5px;
+}

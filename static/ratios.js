@@ -26,7 +26,7 @@ function addIngredients(index, object){
 
 // check answer
 function buttonAnswer(){
-  let button = $('<button class="btn-primary">Check answer</button>')
+  let button = $('<button class="answer_button">Check answer</button>')
   $(button).click(function(){
     let submission = buildAnswer()
     check(submission)
