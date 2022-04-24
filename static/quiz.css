@@ -1,0 +1,34 @@
+
+.container{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+/* drag and drop */
+#title{
+  color: #465362;
+  font-family: 'Muli', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+#body{
+  color: #465362;
+  font-family: 'Muli', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+#ingredient {
+  background-color: #DDEEF8;
+  border-radius: 5px;
+  margin-right: 15px;
+  text-align: center;
+}
+
+.textinput{
+  width: 100%;
+  font-family: 'Muli', sans-serif;
+}
