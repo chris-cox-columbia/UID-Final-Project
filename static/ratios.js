@@ -12,11 +12,14 @@ function pushIngredients(){
 }
 
 function addIngredients(index, object){
-  let new_row = $('<div class="row">')
-  let x = $("<div class='col-4'>" + object + "</div>")
-  let y = $('<input type="text" placeholder="e.g. 3" id="'+index+'"></input><br>')
-  $(new_row).append(x)
-  $(new_row).append(y)
+  let new_row = $('<div class="col-3" id="ingredient">')
+  $(new_row).append("<div class='col-12'>Image</div>")
+  $(new_row).append("<div class='col-12'>" + object + "</div>")
+  $(new_row).append('<div class="col-12"><input type="text" class="textinput" placeholder="e.g. 3" id="'+index+'"></input><div>')
+
+  // let z = $("<div class='col-4' id='ingredient'>" + object + "<input type='text' placeholder='e.g. 3' id='"+index+"'></input><br>" + "</div>")
+  // $(new_row).append(z)
+
 
   $("#main_row").append(new_row)
 }
@@ -92,29 +95,4 @@ $(document).ready(function(){
   initialize(questionDetails)
   pushIngredients()
   buttonAnswer()
-
-  let next = questionDetails.next;
-    $("#next_button").click(function(){
-        if(next==""){
-            let url='/congratulations'
-            window.location.replace(url);
-            }
-        else{
-            let url='/quiz/'+next
-            window.location.replace(url);
-        }
-        })
-    
-    let id = questionDetails.id;
-    $('#back_button').click(function(){
-        if(id=="1"){
-            let url = '/learn/video/3'
-            window.location.replace(url);
-        }
-        else{
-            let prev = (parseInt(id)-1).toString()
-            let url = '/quiz/'+prev
-            window.location.replace(url);
-        }
-        })
 })

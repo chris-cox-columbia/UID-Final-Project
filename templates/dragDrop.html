@@ -17,7 +17,7 @@
   </div>
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
-      <span>Quiz</span> Question {{questionDetails.id}}/ 9<br>
+      <span id="title">Quiz Question {{questionDetails.id}}/ 9<br></span>
       {{questionDetails.question}}
   </div>
   <!-- row to do the dragging and dropping -->
@@ -36,16 +36,10 @@
   <div class="row" id="answer">
   </div>
 
-  <div class="row">
-    <div class="col-md-4 bottom_button">
-        <button type="button" class="button_design" id="back_button">Back</button>
-    </div>
-    <div class="col-md-4 bottom_button">
-    </div>
-    <div class="col-md-4 bottom_button">
-        <button type="button" class="button_design" id="next_button">Next</button>
-    </div>
-</div>
+  <!-- row for next problem -- I took some creative liberties here lol but can change -->
+  <div class="row" id="next">
+    Next problem (to become a button eventually)
+  </div>
 
 
 {% endblock %}
