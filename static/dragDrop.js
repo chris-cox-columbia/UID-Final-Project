@@ -18,7 +18,7 @@ function pushIngredients(){
 function addIngredients(object){
   var x = $("<div>")
   $(x).prop({
-    class: "drag",
+    class: "drag col-3",
     id: object.replace(/\s/g, ""),
     innerHTML: object
   })
@@ -41,7 +41,7 @@ function pushDrink(){
 function addDrink(object){
   var x = $("<div>")
   $(x).prop({
-    class: "drag",
+    class: "drag col-3",
     id: object,
     innerHTML: object
   })
@@ -136,7 +136,7 @@ function makeRed(index){
 }
 
 function buttonAnswer(){
-  let button = $('<button class="btn-primary">Check answer</button>')
+  let button = $('<button class="answer_button">Check answer</button>')
   $(button).click(function(){
     check(drink)
   })

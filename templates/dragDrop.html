@@ -17,18 +17,19 @@
   </div>
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
-      <span id="title">Quiz Question {{questionDetails.id}}/ 9<br></span>
-      {{questionDetails.question}}
+    <div class="col-12"><span id="title">Quiz Question {{questionDetails.id}}/9</span></div>
+    <div class="col-12"><span id="body">{{questionDetails.question}}</span></div>
   </div>
   <!-- row to do the dragging and dropping -->
   <div class="row" id="interface">
     <div class="col-6">
-      <div id="drinkTarget">Shaker (to add image later)</div>
-      <div id="drink"></div>
+      <div>SHAKER</div>
+      <div id="drinkTarget"><img src="{{ url_for('static', filename = 'newemptyshaker.png') }}" id="shaker_image"></div>
+      <div id="drink" class="row"></div>
     </div>
     <div class="col-6">
-      <div id="ingredientTarget">Ingredient Options</div>
-      <div id="ingredientList"></div>
+      <div id="ingredientTarget">INGREDIENT OPTIONS</div>
+      <div id="ingredientList" class="row"></div>
     </div>
   </div>
 
