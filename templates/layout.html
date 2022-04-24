@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{url_for('static', filename='learn.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='layout.css')}}">
 
     </head>
 
@@ -26,7 +27,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <img src="{{ url_for('static', filename = 'logo.png') }}" alt="logo" Width="50px" height="50px">
-                    Bottoms Up!
+                    <span style="padding-left: 10px" font-size="30px" >BottomsUp</span>
                 </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
