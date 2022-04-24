@@ -38,7 +38,6 @@ def congrats():
 
 @app.route('/quiz/<questionId>', methods=['GET','POST'])
 def renderQuestion(questionId=None):
-    update_visit_time(f"/quiz/{questionId}")
     global questions
     questionDetails = questions[questionId]
 
@@ -48,11 +47,15 @@ def renderQuestion(questionId=None):
         if request.method == "GET":
             return render_template("dragDrop.html", questionDetails=questionDetails)
         else:
+        
             user_data = request.get_json()
             print(user_data)
             user_answers = user_data["answer"].split(",")
             result = check_drag_and_drop(questionId, user_answers)
             print(result)
+            global score
+            print(score)
+            update_visit_time(f"/quiz/{questionId}")
             return jsonify(result)
 
     if (type=="ratios"):
@@ -62,6 +65,7 @@ def renderQuestion(questionId=None):
             user_data = dict(request.get_json())
             print("data", user_data)
             result = check_ratios(questionId, user_data)
+            update_visit_time(f"/quiz/{questionId}")
             return jsonify(result)
 
     if (type=="free form"):
@@ -69,8 +73,12 @@ def renderQuestion(questionId=None):
             return render_template("freeForm.html",questionDetails=questionDetails)
         else:
             user_data = request.form
+            # user_data = dict(request.get_json())
+            print("data", user_data)
             user_answers = user_data["answer"]
-            result = check_free_form(questionId)
+            print(user_answers)
+            result = check_free_form(questionId, user_answers)
+            update_visit_time(f"/quiz/{questionId}")
             return jsonify(result)
 
 
@@ -93,7 +101,8 @@ def postAnswers():
 def check_drag_and_drop(questionId, user_answers):
     global questions
     global score
-    correct_answers = questions[questionId]['answer']
+    correct_answers = questions[questionId]['answer'
+    ]
     is_correct = True
     response = {
         'correct': [],
@@ -102,6 +111,8 @@ def check_drag_and_drop(questionId, user_answers):
     }
     # check if each answer selection is correct
     for answer in user_answers:
+        if len(answer) == 0:
+            continue
         if answer in correct_answers:
             response['correct'].append(answer)
         else:
@@ -114,8 +125,11 @@ def check_drag_and_drop(questionId, user_answers):
             response['missing'].append(answer)
             is_correct = False
 
-
-    if is_correct:
+    print(visit_times)
+    # If the user already answered this question, do not update their score
+    url = f"/quiz/{questionId}"
+    if is_correct and url not in visit_times:
+        print(url, "hello")
         score += 1
 
 
@@ -140,16 +154,22 @@ def check_ratios(questionId, user_answers):
             item = ingredient, correct_answer[ingredient]
             response['incorrect'].append(item)
             is_correct = False
+    print(visit_times)
 
-    if is_correct:
+    url = f"/quiz/{questionId}"
+    if is_correct and url not in visit_times:
         score += 1
 
     return response
 
 
-def check_free_form(questionId):
+def check_free_form(questionId, user_answers):
     global questions
+    global score
     correct_answer = questions[questionId]['answer']
+    if correct_answer == user_answers:
+        score += 1
+    
 
 
     return correct_answer

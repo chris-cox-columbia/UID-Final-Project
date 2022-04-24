@@ -3,6 +3,29 @@ function initialize(list){
   id = list.id
 }
 
+function updateScore(){
+  hold = {}
+
+
+  $.ajax({
+      type: "GET",
+      url: "/score",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      data : JSON.stringify(hold),
+      success: function(result){
+        console.log("Score: ", result)
+        // change the text of the score id div
+        $("#score").text(   result + "/10"  )
+      },
+      error: function(request, status, error){
+          console.log("Error");
+          console.log(request)
+          console.log(status)
+          console.log(error)
+      }
+  });
+}
 // render ingredients
 
 function pushIngredients(){
@@ -27,6 +50,7 @@ function buttonAnswer(){
   $(button).click(function(){
     let submission = buildAnswer()
     check(submission)
+    updateScore()
   })
   $("#answer").append(button)
 }
@@ -89,6 +113,7 @@ function makeRed(index){
 // on ready
 
 $(document).ready(function(){
+  updateScore()
   initialize(questionDetails)
   pushIngredients()
   buttonAnswer()
@@ -107,7 +132,7 @@ $(document).ready(function(){
     
     let id = questionDetails.id;
     $('#back_button').click(function(){
-        if(id=="1"){
+             if(id=="1"){
             let url = '/learn/video/3'
             window.location.replace(url);
         }
