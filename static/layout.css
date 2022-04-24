@@ -3,8 +3,7 @@ html {
 }
 body {
     height: 100%;
-    background-image: linear-gradient(to bottom right, lavender, beige);
-    
+    background-color: white;
 }
 .a-container {
     width: auto;
@@ -41,4 +40,8 @@ body {
 .nav-link {
     margin-left: 3em;
     margin-right: 3em;
+}
+.welcomelogo {
+    display: flex;
+    flex-wrap: wrap;
 }
