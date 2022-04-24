@@ -9,6 +9,10 @@
   margin-left: 0px;
 }
 
+#answer{
+    margin: 0px;
+}
+
 /* drag and drop */
 
 #drinkTarget{
@@ -21,6 +25,10 @@
 #shaker_image{
   height:100%;
   opacity: 50%;
+}
+
+#ingredienticon{
+  width:30%;
 }
 
 .drag {
@@ -67,7 +75,7 @@
 }
 
 .answer_button{
-  width: 80%;
+  width: 100%;
   border: 0px;
   border-radius: 5px;
   background-color: #F4DB90;
