@@ -34,6 +34,7 @@
 }
 
 .answer_button{
+  width: 100%;
   border: 0px;
   border-radius: 5px;
   background-color: #F4DB90;
