@@ -18,13 +18,13 @@
 </div>
 <!-- row to track which quesiton the user is on -->
 <div class="row" id="question_tracker">
-    <span>Quiz</span> Question {{questionDetails.id}}/ 9<br>
-    {{questionDetails.question}}
+  <div class="col-12"><span id="title">Quiz Question {{questionDetails.id}}/9</span></div>
+  <div class="col-12"><span id="body">{{questionDetails.question}}</span></div>
 </div>
 <!-- row to do the dragging and dropping -->
 <div class="row" id="interface">
-  <div class="col-6">
-    <div>Ingredient Input</div>
+  <div class="col-3">
+    <div id="body">Ingredient Input</div>
     <input id ="ing0" type="text"> 
     <br>
     <input id ="ing1" type="text">
@@ -35,8 +35,8 @@
     <br>
     <input id ="ing4" type="text">
   </div>
-  <div class="col-6">
-    <div id="ingredientTarget">Ratios</div>
+  <div class="col-3">
+    <div id="body" id="ingredientTarget">Ratios</div>
     <input id ="rat0" type="text">
     <br>
     <input id ="rat1" type="text">
@@ -47,11 +47,12 @@
     <br>
     <input id ="rat4" type="text">
   </div>
-  
-  <button id="submit">Submit my answers</button>
-  <br>
-  <button id="clear">Clear my answers</button>
 </div>
+
+<button id="submit" class="answer_button1">Submit answer</button>
+<br>
+<button id="clear" class="quiz_button">Clear answer</button>
+
 
 <div class="row" id="feedback">
 </div>
