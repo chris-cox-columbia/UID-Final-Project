@@ -9,7 +9,7 @@ body {
     width: auto;
     box-sizing: border-box;
     position: relative;
-    margin: 15px;
+    margin: 25px;
 }
 .button1 {
     width: 400px;
@@ -21,10 +21,11 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 40px;
+    font-size: 50px;
     margin: 4px 2px;
     cursor: pointer;
     background-color: #008CBA;
+    font-family: 'Montserrat';
 }
 .navbar {
     background-color: #DDEEF8;

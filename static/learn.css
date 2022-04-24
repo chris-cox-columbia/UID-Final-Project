@@ -68,8 +68,18 @@
 }
 .button_design{
     padding: 10px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #008CBA;
     font-family: 'Montserrat';
-    border-radius: 10px;
 }
 .instruct_box{
     padding-top: 30px;
