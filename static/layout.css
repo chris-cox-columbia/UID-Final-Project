@@ -25,8 +25,18 @@ body {
     cursor: pointer;
     background-color: #008CBA;
 }
-.logo {
-    position: absolute;
+.navbar-brand{
+    display: inline;
+    padding-left: 30px;
+    font-size: 25px;
+    font-weight: 700;
 }
-
-
+.navbar-nav {
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 500;
+}
+.nav-link {
+    margin-left: 3em;
+    margin-right: 3em;
+}
