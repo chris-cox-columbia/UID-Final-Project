@@ -20,7 +20,7 @@ function addIngredients(object){
   $(x).prop({
     class: "drag col-3",
     id: object.replace(/\s/g, ""),
-    innerHTML: object
+    innerHTML: "<img src='../static/tequila.png' id='ingredienticon'><br>" + object
   })
 
   $(x).attr({
@@ -128,11 +128,11 @@ function compare(result){
 }
 
 function makeGreen(index){
-  $("#"+index).css({'background-color':'lightgreen'})
+  $("#"+index).css({'background-color':'#E7F2D6'})
 }
 
 function makeRed(index){
-  $("#"+index).css({'background-color':'red'})
+  $("#"+index).css({'background-color':'#F1CAB7'})
 }
 
 function buttonAnswer(){
