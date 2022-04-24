@@ -93,6 +93,29 @@ function toString(answer){
   return newString
 }
 
+
+function updateScore(){
+
+
+  $.ajax({
+      type: "GET",
+      url: "/score",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      success: function(result){
+        console.log("Score: ", result)
+        // change the text of the score id div
+        $("#score").text(   result + "/10"  )
+      },
+      error: function(request, status, error){
+          console.log("Error");
+          console.log(request)
+          console.log(status)
+          console.log(error)
+      }
+  });
+}
+
 function check(submission){
 
   var hold = {}
@@ -139,12 +162,14 @@ function buttonAnswer(){
   let button = $('<button class="answer_button">Check answer</button>')
   $(button).click(function(){
     check(drink)
+    updateScore()
   })
   $("#answer").append(button)
 }
 
 // on ready
 $(document).ready(function(){
+  updateScore()
   initialize(questionDetails.options)
   pushIngredients()
   pushDrink()
