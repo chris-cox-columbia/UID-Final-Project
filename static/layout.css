@@ -1,8 +1,8 @@
 html {
-    height: 100%
+    height: auto;
 }
 body {
-    height: 100%;
+    height: auto;
     background-color: white;
 }
 .a-container {
@@ -26,6 +26,9 @@ body {
     cursor: pointer;
     background-color: #008CBA;
 }
+.navbar {
+    background-color: #DDEEF8;
+}
 .navbar-brand{
     display: inline;
     padding-left: 30px;
@@ -43,5 +46,6 @@ body {
 }
 .welcomelogo {
     display: flex;
-    flex-wrap: wrap;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
