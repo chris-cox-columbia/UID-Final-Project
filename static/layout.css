@@ -1,9 +1,9 @@
-html {
-    height: auto;
-}
-body {
-    height: auto;
-    background-color: white;
+html, body {
+    width: 100vw;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 .a-container {
     width: auto;
