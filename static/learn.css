@@ -86,6 +86,13 @@
     cursor: pointer;
     background-color: #008CBA;
     font-family: 'Montserrat';
+    position: relative;
+}
+.button_design:hover {
+    position: absolute;
+}
+.line_break {
+    border-bottom: 2px solid lightblue;
 }
 .instruct_box{
     padding-top: 30px;

@@ -9,7 +9,7 @@ body {
     width: auto;
     box-sizing: border-box;
     position: relative;
-    margin: 25px;
+    margin: 10px 25px 0px 25px;
 }
 .button1 {
     width: 400px;
@@ -44,6 +44,10 @@ body {
 .nav-link {
     margin-left: 3em;
     margin-right: 3em;
+}
+.nav-link:hover {
+    background-color: lightgray;
+    border-radius: 25px;
 }
 .welcomelogo {
     display: flex;
