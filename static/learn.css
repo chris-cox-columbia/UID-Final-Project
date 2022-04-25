@@ -43,8 +43,6 @@
     padding-top: 40px;
 }
 .main_image{
-    width: 100%;
-    height: auto;
     object-fit: cover;
 }
 .ingred_box{
