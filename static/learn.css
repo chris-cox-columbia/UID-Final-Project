@@ -1,18 +1,14 @@
 .learn_circle{
-    width: 60px;
-    height: 60px;
     line-height: 60px;
-    border-radius: 50%;
-    border: 1px solid dimgrey;
-    font-size: 50px;
+    font-size: 45px;
     color: black;
     text-align: center;
     display: inline;
-    padding: 0px 15px;
+    padding-top: 20px;
     font-family: 'Montserrat';
 }
 .drink_title{
-    padding: 0px 30px;
+    padding: 20px 10px;
     font-size: 35px;
     display: inline;
     font-family: 'Montserrat';
@@ -46,7 +42,7 @@
     object-fit: cover;
 }
 .ingred_box{
-    padding-top: 60px;
+    padding-top: 120px;
     font-family: 'Montserrat';
     text-transform: uppercase;
 }
@@ -108,4 +104,10 @@
 }
 .video{
     padding: 15px;
+}
+.row{
+    margin-bottom: 5px;
+}
+.row .video{
+    margin-top: 20px;
 }

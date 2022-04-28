@@ -49,11 +49,11 @@ function back_button_intro(drinkInfo) {
       });
 }
 
-function underline(){
+function underline(drinkInfo){
       for (const [key, value] of Object.entries(drinkInfo.ingredient_list)) {
-            console.log(key);
-            $('#ingred_name_' + key).css("text_decoration", "underline");
-            $('#ingred_name_' + key).css("text_decoration_color", drinkInfo.ingredient_details[value][0]);
+            let name = '#ingred_name_' + key
+            $(name).css("text-decoration", "underline");
+            $(name).css("text-decoration-color", drinkInfo.ingredient_details[value]["hexcode"]);
       }
 }
 
@@ -63,5 +63,5 @@ $(document).ready(function(){
       next_button_intro();
       back_button_intro(drinkInfo);
       dialog_pop_up();
-      underline();
+      underline(drinkInfo);
 })

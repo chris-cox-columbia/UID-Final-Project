@@ -11,26 +11,12 @@
     let drinkInfo = {{drinkInfo|tojson}}
 </script>
 
-<div class="row" style="margin: 0">
-    <div class="col-md-4 bottom_button">
-        <button type="button" class="button_design" id="back_button_video">Back</button>
-    </div>
-    <div class="col-md-4 bottom_button">
-        <button type="button" class="button_design" id="extra_info_button">Extra Info</button>
-    </div>
-    <div class="col-md-4 bottom_button">
-        <button type="button" class="button_design" id="next_button_video">Next</button>
-    </div>
-</div>
-
-<div class="line_break"></div>
-
 <div class="a-container">
-    <div class="row">
+    <div class="row video">
         <div class="col-md-10" id="fixed_div_height">
             <div>
                 <div class="learn_circle">
-                    <span>{{drinkInfo.id}}</span>
+                    <span>{{drinkInfo.id}}.</span>
                 </div>
                 <div class="drink_title">
                     <span class="drink_number_name">{{drinkInfo.ingredient_number}} Ingredient</span>
@@ -58,6 +44,20 @@
                 <img src="{{ url_for('static', filename = drinkInfo.id + '-basic.png') }}" class="side_image">
                 <img src="{{ url_for('static', filename = drinkInfo.id + '-graphic.png') }}" class="side_image">
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="bottom_bar">
+    <div class="row" style="margin: 0">
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design" id="back_button_video">Back</button>
+        </div>
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design" id="extra_info_button">Extra Info</button>
+        </div>
+        <div class="col-md-4 bottom_button">
+            <button type="button" class="button_design" id="next_button_video">Next</button>
         </div>
     </div>
 </div>

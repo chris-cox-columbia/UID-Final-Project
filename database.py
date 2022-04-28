@@ -53,10 +53,10 @@ drinksData = {"1":{"id":"1",
                                         }
                                     },
                     "procedure":["Fill a cocktail shaker with ice.",
-                                 "Add lime juice, rum, and Campari. Shake well.",
+                                 "Add lime juice, rum, and campari. Shake well.",
                                  "Strain into ice-filled rocks glass.",
                                  "Add grapefruit soda, stir gently and serve"],
-                    "emphasize":{"1":["lime juice", "rum", "Campari"],"2":["grapefruit soda"]},
+                    "emphasize":{"1":["lime juice", "rum", "campari"],"2":["grapefruit soda"]},
                     "next":"3"
                     },
                 "3":{"id":"3",
