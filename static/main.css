@@ -22,3 +22,13 @@
     position: relative;
     left: 50px;
 }
+
+.answer_button1{
+    border: 0px;
+    background-color: #F4DB90;
+    color: #465362;
+    font-family: 'Muli', sans-serif;
+    border-radius: 5px;
+    position: relative;
+    top:-3px;
+  }

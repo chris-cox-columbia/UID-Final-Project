@@ -11,9 +11,23 @@
     let drinkInfo = {{drinkInfo|tojson}}
 </script>
 
+<div class="row" style="margin: 0">
+    <div class="col-md-4 bottom_button">
+        <button type="button" class="button_design" id="back_button_intro">Back</button>
+    </div>
+    <div class="col-md-4 bottom_button">
+        <button type="button" class="button_design" id="extra_info_button">Extra Info</button>
+    </div>
+    <div class="col-md-4 bottom_button">
+        <button type="button" class="button_design" id="next_button_intro">Next</button>
+    </div>
+</div>
+
+<div class="line_break"></div>
+
 <div class="a-container">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-10" id="fixed_div_height">
             <div>
                 <div class="learn_circle">
                     <span>{{drinkInfo.id}}</span>
@@ -41,17 +55,6 @@
             <div class="side_bar">
                 <img src="{{ url_for('static', filename = drinkInfo.id + '-basic.png') }}" class="side_image">
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 bottom_button">
-            <button type="button" class="button_design" id="back_button_intro">Back</button>
-        </div>
-        <div class="col-md-4 bottom_button">
-            <button type="button" class="button_design" id="extra_info_button">Extra Info</button>
-        </div>
-        <div class="col-md-4 bottom_button">
-            <button type="button" class="button_design" id="next_button_intro">Next</button>
         </div>
     </div>
 </div>
