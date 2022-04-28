@@ -20,8 +20,8 @@ drinksData = {"1":{"id":"1",
                                             "hexcode":"#FFFFFF"
                                             }
                                     },
-                    "procedure":["Add Ginger Beer and Vodka together",
-                                 "Garnish with a lime slice optionally squeezing some lime juice inside",
+                    "procedure":["Add ginger beer and vodka together",
+                                 "Garnish with a lime slice, optionally squeezing some lime juice inside",
                                  "Serve with chilled ice"],
                     "emphasize":{"1":["Ginger Beer", "Vodka"], "2":["lime slice"]},
                     "next":"2"

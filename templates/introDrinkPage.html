@@ -28,10 +28,10 @@
                     <img src="{{ url_for('static', filename = drinkInfo.id + '-graphic.png') }}" class="main_image">
                 </div>
                 <div class="col-md-8 ingred_box">
-                    {% for i in drinkInfo.ingredient_list %}
+                    {% for i in range(0, drinkInfo.ingredient_list|length) %}
                         <div class="ingred_list_{{drinkInfo.ingredient_number}}">
-                            <span class="ingred_name">{{i}}</span>
-                            <span class="ingred_amount"> - {{drinkInfo.ingredient_details[i].quantity}}</span>
+                            <span class="ingred_name" id="ingred_name_{{i}}">{{drinkInfo.ingredient_list[i]}}</span>
+                            <span class="ingred_amount"> - {{drinkInfo.ingredient_details[drinkInfo.ingredient_list[i]].quantity}}</span>
                         </div>
                     {% endfor %}
                 </div>
