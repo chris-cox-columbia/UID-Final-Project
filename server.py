@@ -2,7 +2,7 @@ from contextlib import redirect_stderr
 import time
 from flask import Flask
 from flask import render_template, Response, request, jsonify, redirect, url_for
-from database import drinksData, questions, studentAnswers
+from database import drinksData, questions, studentAnswers, images
 app = Flask(__name__)
 
 score = 0
@@ -45,7 +45,7 @@ def renderQuestion(questionId=None):
 
     if (type=="drag and drop"):
         if request.method == "GET":
-            return render_template("dragDrop.html", questionDetails=questionDetails)
+            return render_template("dragDrop.html", questionDetails=questionDetails, images=images)
         else:
         
             user_data = request.get_json()

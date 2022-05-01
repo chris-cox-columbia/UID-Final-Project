@@ -9,18 +9,21 @@ function initialize(list){
 
 // Rendering ingredient options
 
-function pushIngredients(){
+function pushIngredients(images){
   for(var i=0; i<ingredients.length; i++){
-    addIngredients(ingredients[i])
+    addIngredients(ingredients[i], images)
   }
 }
 
-function addIngredients(object){
+function addIngredients(object, images){
+  let img = images[object]
   var x = $("<div>")
+  let html = "<img src='../static/"+img+"' id='ingredienticon'><br>" 
+  
   $(x).prop({
     class: "drag col-3",
     id: object.replace(/\s/g, ""),
-    innerHTML: "<img src='../static/tequila.png' id='ingredienticon'><br>" + object
+    innerHTML: html + object
   })
 
   $(x).attr({
@@ -171,7 +174,7 @@ function buttonAnswer(){
 $(document).ready(function(){
   updateScore()
   initialize(questionDetails.options)
-  pushIngredients()
+  pushIngredients(images)
   pushDrink()
   buttonAnswer()
 
