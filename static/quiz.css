@@ -5,7 +5,7 @@
 }
 
 .row{
-  margin-bottom: 30px;
+  width: 100%;
   margin-left: 0px;
 }
 
@@ -43,8 +43,17 @@
 
 /* ratios */
 
-#main_row, #answer{
+#main_row {
+  margin-top: 20px;
+  height: 200px;
+  justify-content: center;
+  width: 100%;
+
+}
+
+ #answer{
   margin-left: 0px;
+  padding-top: 20px;
 }
 
 #title{
@@ -75,21 +84,35 @@
 }
 
 .answer_button{
-  width: 100%;
+  margin:auto;
+  width: 50%;
   border: 0px;
+  font-size: 30px;
   border-radius: 5px;
   background-color: #F4DB90;
   font-family: 'Muli', sans-serif;
-}
+}S
 
 #navigation{
-  font-family: 'Muli', sans-serif;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 .quiz_button{
-  border: 0px;
-  background-color: #DDEEF8;
-  color: #465362;
-  font-family: 'Muli', sans-serif;
-  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #008CBA;
+  font-family: 'Montserrat';
+  position: relative;
 }
