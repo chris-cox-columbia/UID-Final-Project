@@ -16,6 +16,7 @@ function pushIngredients(images){
 }
 
 function addIngredients(object, images){
+  console.log(object, images)
   let img = images[object]
   var x = $("<div>")
   let html = "<img src='../static/"+img+"' id='ingredienticon'><br>" 
@@ -220,7 +221,7 @@ $(document).ready(function(){
       emptyIngredients()
       emptyDrink()
 
-      pushIngredients()
+      pushIngredients(images)
       pushDrink()
     }
   })
@@ -240,7 +241,7 @@ $(document).ready(function(){
         emptyIngredients()
         emptyDrink()
 
-        pushIngredients()
+        pushIngredients(images)
         pushDrink()
       }
 
