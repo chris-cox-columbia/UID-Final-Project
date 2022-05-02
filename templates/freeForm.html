@@ -14,7 +14,7 @@
     let questionDetails = {{questionDetails|tojson}}
   </script>
 
-<div class="row">
+<div class="row video">
 </div>
 <!-- row to track which quesiton the user is on -->
 <div class="row" id="question_tracker">
@@ -22,7 +22,7 @@
   <div class="col-12"><span id="body">{{questionDetails.question}}</span></div>
 </div>
 <!-- row to do the dragging and dropping -->
-<div class="row" id="interface">
+<div class="row video" id="interface">
   <div class="col-3">
     <div id="body">Ingredient Input</div>
     <input id ="ing0" type="text"> 
@@ -49,9 +49,10 @@
   </div>
 </div>
 
-<button id="submit" class="answer_button1">Submit answer</button>
+<center><button id="clear" class="check_answer">Clear answer</button></center>
 <br>
-<button id="clear" class="quiz_button">Clear answer</button>
+<center><button id="submit" class="answer_button">Submit answer</button></center>
+
 
 
 <div class="row" id="feedback">
@@ -68,14 +69,15 @@
 </div>
 
 <div class="row" id="navigation">
-  <div class="col-4">
-      <button type="button" class="quiz_button" id="back_button">Back</button>
+  <div class="col-4" style="margin: 0">
+     <center><button type="button" class="quiz_button" id="back_button">Back</button></center>
   </div>
   <div class="col-4 bottom_button">
   </div>
   <div class="col-4">
-      <button type="button" class="quiz_button" id="next_button">Next</button>
+    <center><button type="button" class="quiz_button" id="next_button">Next</button></center>
   </div>
+</div>
 {% endblock %}
 
 
