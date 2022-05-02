@@ -19,7 +19,13 @@
 </div>
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
-    <div class="col-12"><span id="title">Quiz Question {{questionDetails.id}}/9</span></div>
+    <div class="col-8"><span id="title">Quiz Question {{questionDetails.id}}/9</span></div>
+    <div style="text-align-last: end; padding-right: 45px;" class="col-4">
+      <div style="display: inline-block; transform: translateY(50%);">CURRENT SCORE:  </div>
+      <div style="display: inline-block;" class="score_circle">
+        <div style="transform: translateY(50%); text-align-last: center;" id="score">x/x</div>
+      </div>
+    </div>
     <div class="col-12"><span id="body">{{questionDetails.question}}</span></div>
   </div>
   <!-- row to do assignment of ratios -->
