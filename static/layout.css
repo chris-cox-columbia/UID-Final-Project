@@ -6,7 +6,8 @@ body {
 .a-container {
     width: 100%;
     height: 700px;
-    display: inline-block
+    display: inline-block;
+    overflow: visible;
 }
 .button1 {
     width: 400px;
