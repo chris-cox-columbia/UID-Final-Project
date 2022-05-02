@@ -1,5 +1,8 @@
 
-
+body{
+  font-family: 'Muli', sans-serif;
+  color: #465362;
+}
 .row{
   width: 100%;
   margin-left: 0px;
@@ -10,6 +13,23 @@
     margin: 0px;
 }
 
+.score_circle{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #A6B7C8;
+  text-align: center;
+}
+
+.left{
+  text-align: left;
+}
+
+#score{
+  font-size: 16px;
+  font-weight: 900;
+}
+
 /* drag and drop */
 
 #drinkTarget{
@@ -18,6 +38,7 @@
   border-radius: 5px;
   text-align-last: center;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 #shaker_image{
@@ -46,7 +67,7 @@
   height: 200px;
   justify-content: center;
   width: 100%;
-  
+
 
 }
 
@@ -87,13 +108,13 @@
   width: 300px;
   border: 0px;
   font-size: 24px;
-  border-radius: 25px;
+  border-radius: 5px;
   background-color: #F4DB90;
   font-family: 'Muli', sans-serif;
-  
+
 }
 .answer_button:hover {
-  background-color: lightskyblue;
+  background-color: #DDEEF8;
 }
 
 #navigation{
@@ -104,7 +125,7 @@
 .quiz_button{
   padding: 10px;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -113,8 +134,7 @@
   font-size: 30px;
   margin: 4px 2px;
   cursor: pointer;
-  background-color: #008CBA;
-  font-family: 'Montserrat';
+  background-color: #465362;
   position: relative;
 }
 .check_answer {

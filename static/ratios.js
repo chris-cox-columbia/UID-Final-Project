@@ -3,29 +3,6 @@ function initialize(list){
   id = list.id
 }
 
-function updateScore(){
-  hold = {}
-
-
-  $.ajax({
-      type: "GET",
-      url: "/score",
-      dataType : "json",
-      contentType: "application/json; charset=utf-8",
-      data : JSON.stringify(hold),
-      success: function(result){
-        console.log("Score: ", result)
-        // change the text of the score id div
-        $("#score").text(   result + "/10"  )
-      },
-      error: function(request, status, error){
-          console.log("Error");
-          console.log(request)
-          console.log(status)
-          console.log(error)
-      }
-  });
-}
 // render ingredients
 
 function pushIngredients(){
@@ -53,7 +30,6 @@ function buttonAnswer(){
   $(button).click(function(){
     let submission = buildAnswer()
     check(submission)
-    updateScore()
   })
   $("#answer").append(button)
 }
@@ -106,44 +82,17 @@ function compare(result){
 }
 
 function makeGreen(index){
-  $("#"+index).css({'background-color':'lightgreen'})
+  $("#"+index).css({'background-color':'#E7F2D6'})
 }
 
 function makeRed(index){
-  $("#"+index).css({'background-color':'red'})
+  $("#"+index).css({'background-color':'#F1CAB7'})
 }
 
 // on ready
 
 $(document).ready(function(){
-  updateScore()
   initialize(questionDetails)
   pushIngredients()
   buttonAnswer()
-
-  let next = questionDetails.next;
-  $("#next_button").click(function(){
-      if(next==""){
-          let url='/congratulations'
-          window.location.replace(url);
-          }
-      else{
-          let url='/quiz/'+next
-          window.location.replace(url);
-      }
-      })
-  
-  let id = questionDetails.id;
-  $('#back_button').click(function(){
-      if(id=="1"){
-          let url = '/learn/video/3'
-          window.location.replace(url);
-      }
-      else{
-          let prev = (parseInt(id)-1).toString()
-          let url = '/quiz/'+prev
-          window.location.replace(url);
-      }
-    })
-  
 })
