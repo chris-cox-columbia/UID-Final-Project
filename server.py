@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 score = 0
 visit_times = {}
+correct_questions = {}
 
 
 @app.route('/')
@@ -125,10 +126,11 @@ def check_drag_and_drop(questionId, user_answers):
             response['missing'].append(answer)
             is_correct = False
 
-    print(visit_times)
+    print(correct_questions)
     # If the user already answered this question, do not update their score
     url = f"/quiz/{questionId}"
-    if is_correct and url not in visit_times:
+    if is_correct and url not in correct_questions:
+        correct_questions[url] = True
         print(url, "hello")
         score += 1
 
@@ -156,10 +158,13 @@ def check_ratios(questionId, user_answers):
             is_correct = False
     print(visit_times)
 
-    url = f"/quiz/{questionId}"
-    if is_correct and url not in visit_times:
-        score += 1
 
+    url = f"/quiz/{questionId}"
+    if is_correct and url not in correct_questions:
+        correct_questions[url] = True
+        print(url, "hello")
+        score += 1
+        
     return response
 
 
@@ -167,9 +172,12 @@ def check_free_form(questionId, user_answers):
     global questions
     global score
     correct_answer = questions[questionId]['answer']
-    if correct_answer == user_answers:
-        score += 1
     
+    url = f"/quiz/{questionId}"
+    if correct_answer == user_answers and url not in correct_questions:
+        correct_questions[url] = True
+        print(url, "hello")
+        score += 1
 
 
     return correct_answer
