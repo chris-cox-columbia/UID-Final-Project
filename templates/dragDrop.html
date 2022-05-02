@@ -13,7 +13,7 @@
   let images = {{images|tojson}}
 </script>
 
-<div class="row">
+<div class="row video">
   </div>
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
@@ -23,14 +23,14 @@
   <!-- row to do the dragging and dropping -->
   <div class="row" id="interface">
     <div class="col-6">
-      <div>SHAKER</div>
+      <center><div style="font-size: 20px">SHAKER</div></center>
       <div id="drinkTarget"><img src="{{ url_for('static', filename = 'newemptyshaker.png') }}" id="shaker_image"></div>
       <div id="drink" class="row"></div>
       <div class="row" id="answer">
       </div>
     </div>
     <div class="col-6">
-      <div id="ingredientTarget">INGREDIENT OPTIONS</div>
+      <center><div id="ingredientTarget">INGREDIENT OPTIONS</div></center>
       <div id="ingredientList" class="row"></div>
     </div>
   </div>
@@ -49,14 +49,15 @@
 
   <!-- row for next problem -- I took some creative liberties here lol but can change -->
   <div class="row" id="navigation">
-    <div class="col-4">
-        <button type="button" class="quiz_button" id="back_button">Back</button>
+    <div class="col-4" style="margin: 0">
+       <center><button type="button" class="quiz_button" id="back_button">Back</button></center>
     </div>
     <div class="col-4 bottom_button">
     </div>
     <div class="col-4">
-        <button type="button" class="quiz_button" id="next_button">Next</button>
+      <center><button type="button" class="quiz_button" id="next_button">Next</button></center>
     </div>
+  </div>
 
 
 {% endblock %}

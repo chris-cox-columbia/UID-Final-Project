@@ -1,12 +1,9 @@
 
-.container{
-  margin: 0px;
-  padding: 0px;
-}
 
 .row{
   width: 100%;
   margin-left: 0px;
+  justify-content: space-evenly;
 }
 
 #answer{
@@ -17,9 +14,10 @@
 
 #drinkTarget{
   background-color: #DDEEF8;
-  height: 200px;
+  height: 300px;
   border-radius: 5px;
   text-align-last: center;
+  padding-top: 20px;
 }
 
 #shaker_image{
@@ -44,10 +42,11 @@
 /* ratios */
 
 #main_row {
-  margin-top: 20px;
+  margin-top: 50px;
   height: 200px;
   justify-content: center;
   width: 100%;
+  
 
 }
 
@@ -85,19 +84,21 @@
 
 .answer_button{
   margin:auto;
-  width: 50%;
+  width: 300px;
   border: 0px;
-  font-size: 30px;
-  border-radius: 5px;
+  font-size: 24px;
+  border-radius: 25px;
   background-color: #F4DB90;
   font-family: 'Muli', sans-serif;
-}S
+  
+}
+.answer_button:hover {
+  background-color: lightskyblue;
+}
 
 #navigation{
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+  font-family: 'Muli', sans-serif;
+  margin-top: 20px;
 }
 
 .quiz_button{
@@ -115,4 +116,13 @@
   background-color: #008CBA;
   font-family: 'Montserrat';
   position: relative;
+}
+.check_answer {
+  margin:auto;
+  width: 200px;
+  border: 0px;
+  font-size: 24px;
+  border-radius: 25px;
+  background-color: lightpink;
+  font-family: 'Muli', sans-serif;
 }
