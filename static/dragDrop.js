@@ -18,8 +18,8 @@ function pushIngredients(images){
 function addIngredients(object, images){
   let img = images[object]
   var x = $("<div>")
-  let html = "<img src='../static/"+img+"' id='ingredienticon'><br>" 
-  
+  let html = "<img src='../static/"+img+"' id='ingredienticon'><br>"
+
   $(x).prop({
     class: "drag col-3",
     id: object.replace(/\s/g, ""),
@@ -42,11 +42,14 @@ function pushDrink(){
 }
 
 function addDrink(object){
+  let img = images[object]
   var x = $("<div>")
+  let html = "<img src='../static/"+img+"' id='ingredienticon'><br>"
+
   $(x).prop({
     class: "drag col-3",
-    id: object,
-    innerHTML: object
+    id: object.replace(/\s/g, ""),
+    innerHTML: html + object
   })
 
   $(x).attr({
