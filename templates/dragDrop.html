@@ -18,12 +18,18 @@
   <!-- row to track which quesiton the user is on -->
   <div class="row" id="question_tracker">
     <div class="col-12"><span id="title">Quiz Question {{questionDetails.id}}/9</span></div>
-    <div class="col-12"><span id="body">{{questionDetails.question}}</span></div>
+    <div class="col-8"><span id="body">{{questionDetails.question}}</span></div>
+    <div class="col-4">
+      <div class="score_circle">
+        <div>Current Score: </div>
+        <div id="score">x/x</div>
+      </div>
+    </div>
   </div>
   <!-- row to do the dragging and dropping -->
   <div class="row" id="interface">
     <div class="col-6">
-      <center><div style="font-size: 20px">SHAKER</div></center>
+      <center><div>SHAKER</div></center>
       <div id="drinkTarget"><img src="{{ url_for('static', filename = 'newemptyshaker.png') }}" id="shaker_image"></div>
       <div id="drink" class="row"></div>
       <div class="row" id="answer">
@@ -34,15 +40,7 @@
       <div id="ingredientList" class="row"></div>
     </div>
   </div>
-<!-- Create a circular div with the text "score" in the top right of the page-->
-<div class="row" id="score-container">
-  <div class="col-12">
-    <div class="score_circle">
-      <div>Score: </div>
-      <div id="score">x/x</div>
-    </div>
-  </div>
-</div>
+
   <!-- TEMPORARY TO CHECK ANSWER -->
   <div class="row" id="answer">
   </div>
