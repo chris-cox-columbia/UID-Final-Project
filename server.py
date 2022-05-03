@@ -56,7 +56,7 @@ def renderQuestion(questionId=None):
 
     if (type=="ratios"):
         if request.method == "GET":
-            return render_template("ratios.html",questionDetails=questionDetails)
+            return render_template("ratios.html",questionDetails=questionDetails, images=images)
         else:
             user_data = dict(request.get_json())
             print("data", user_data)

@@ -163,7 +163,7 @@ function makeRed(index){
 }
 
 function buttonAnswer(){
-  let button = $('<button class="answer_button">Check answer</button>')
+  let button = $('<button class="answer_button">CHECK ANSWER</button>')
   $(button).click(function(){
     check(drink)
     updateScore()

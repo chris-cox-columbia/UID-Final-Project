@@ -240,7 +240,11 @@ images = {
     "Campari": "campari.png",
     "Vodka": "vodka.png",
     "Dry vermouth": "vermouth.png",
-    "Olives": "olives.png"
+    "Olives": "olives.png",
+    "White Rum" : "whiterum.png",
+    "Orgeat" : "orgeat.png",
+    "Curaçao" : "curacao.png",
+    "Dark Rum" : "darkrum.png"
 }
 
 

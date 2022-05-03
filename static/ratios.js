@@ -5,15 +5,16 @@ function initialize(list){
 
 // render ingredients
 
-function pushIngredients(){
+function pushIngredients(images){
   for(var i=0; i<ingredients.length; i++){
-    addIngredients(i, ingredients[i])
+    addIngredients(i, ingredients[i], images)
   }
 }
 
-function addIngredients(index, object){
+function addIngredients(index, object, images){
+  let img = images[object]
   let new_row = $('<div class="col-3" id="ingredient">')
-  $(new_row).append("<div class='col-12'>Image</div>")
+  $(new_row).append("<div class='col-12'><img src='../static/"+img+"' id='ingredienticon'></div>")
   $(new_row).append("<div class='col-12'>" + object + "</div>")
   $(new_row).append('<div class="col-12"><input type="text" class="textinput" placeholder="e.g. 3" id="'+index+'"></input><div>')
 
@@ -115,7 +116,7 @@ function makeRed(index){
 
 $(document).ready(function(){
   initialize(questionDetails)
-  pushIngredients()
+  pushIngredients(images)
   buttonAnswer()
   updateScore()
 
