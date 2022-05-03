@@ -12,8 +12,6 @@ function getInformation(input, studentAnswers){
 }
 
 function updateScore(){
-
-
   $.ajax({
       type: "GET",
       url: "/score",
@@ -86,6 +84,28 @@ function sendAnswerToDb(studentAnswers, id){
 
 }
 
+
+function updateCorrectnessScore(id){
+    $.ajax({
+        type: "POST",
+      url: "/quiz/"+id,
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      data : JSON.stringify({}),
+      success: function(result){
+        console.log(result)
+        updateScore()
+      },
+      error: function(request, status, error){
+          console.log("Error");
+          console.log(request)
+          console.log(status)
+          console.log(error)
+      }
+    })
+}
+
+
 $(document).ready(function(){
     updateScore()
     let studentAnswers = {}
@@ -114,6 +134,7 @@ $(document).ready(function(){
         if(correctAnswers==lenCorrectAnswer && incorrectAnswers==0){
             $("#feedback").text("Congrats you are correct");
             sendAnswerToDb(studentAnswers,qid);
+            updateCorrectnessScore(qid);
         }
         else{
             $("#feedback").text("You got this wrong");

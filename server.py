@@ -66,15 +66,11 @@ def renderQuestion(questionId=None):
 
     if (type=="free form"):
         if request.method == "GET":
-            return render_template("freeForm.html",questionDetails=questionDetails)
-        else:
-            user_data = request.form
-            # user_data = dict(request.get_json())
-            print("data", user_data)
-            user_answers = user_data["answer"]
-            print(user_answers)
-            result = check_free_form(questionId, user_answers)
             update_visit_time(f"/quiz/{questionId}")
+            return render_template("freeForm.html",questionDetails=questionDetails)
+
+        else:
+            result = update_freeform_score(questionId)
             return jsonify(result)
 
 
@@ -138,6 +134,7 @@ def check_drag_and_drop(questionId, user_answers):
 def check_ratios(questionId, user_answers):
     global questions
     global score
+    global correctlyAnsweredQ
     correct_answer = dict(zip(questions[questionId]['options'], questions[questionId]['answer']))
     response = {
         'correct': [],
@@ -156,7 +153,6 @@ def check_ratios(questionId, user_answers):
     print(visit_times)
 
     url = f"/quiz/{questionId}"
-    global correctlyAnsweredQ
     if is_correct and questionId not in correctlyAnsweredQ:
         score += 1
         correctlyAnsweredQ.add(questionId)
@@ -166,16 +162,13 @@ def check_ratios(questionId, user_answers):
     return response
 
 
-def check_free_form(questionId, user_answers):
-    global questions
+def update_freeform_score(questionId):
     global score
-    correct_answer = questions[questionId]['answer']
-    if correct_answer == user_answers:
+    global correctlyAnsweredQ
+    if questionId not in correctlyAnsweredQ:
         score += 1
-    
-
-
-    return correct_answer
+        correctlyAnsweredQ.add(questionId)
+    return None
 
 
 def update_visit_time(endpoint):

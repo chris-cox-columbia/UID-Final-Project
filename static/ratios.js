@@ -44,7 +44,6 @@ function buildAnswer(){
 }
 
 function check(submission){
-
   $.ajax({
       type: "POST",
       url: "/quiz/"+id,
