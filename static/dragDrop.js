@@ -101,8 +101,6 @@ function toString(answer){
 
 
 function updateScore(){
-
-
   $.ajax({
       type: "GET",
       url: "/score",
