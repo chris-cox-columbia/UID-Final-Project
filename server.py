@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 score = 0
 visit_times = {}
+correctlyAnsweredQ = set()
 
 
 @app.route('/')
@@ -47,14 +48,9 @@ def renderQuestion(questionId=None):
         if request.method == "GET":
             return render_template("dragDrop.html", questionDetails=questionDetails, images=images)
         else:
-        
             user_data = request.get_json()
-            print(user_data)
             user_answers = user_data["answer"].split(",")
             result = check_drag_and_drop(questionId, user_answers)
-            print(result)
-            global score
-            print(score)
             update_visit_time(f"/quiz/{questionId}")
             return jsonify(result)
 
@@ -128,10 +124,13 @@ def check_drag_and_drop(questionId, user_answers):
     print(visit_times)
     # If the user already answered this question, do not update their score
     url = f"/quiz/{questionId}"
-    if is_correct and url not in visit_times:
-        print(url, "hello")
-        score += 1
 
+    global correctlyAnsweredQ
+    if is_correct and questionId not in correctlyAnsweredQ:
+        score += 1
+        correctlyAnsweredQ.add(questionId)
+
+    print("Score=",score)
 
     return response
 
@@ -157,8 +156,12 @@ def check_ratios(questionId, user_answers):
     print(visit_times)
 
     url = f"/quiz/{questionId}"
-    if is_correct and url not in visit_times:
+    global correctlyAnsweredQ
+    if is_correct and questionId not in correctlyAnsweredQ:
         score += 1
+        correctlyAnsweredQ.add(questionId)
+
+
 
     return response
 
