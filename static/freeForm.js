@@ -42,6 +42,7 @@ function makeRatioRed(i){
 
 
 function checkAnswer(ingredient, ratio, answer,i){
+    ingredient = ingredient.toLowerCase().trim()
     if (!(ingredient in answer)){
         makeRowColor(i, 'lightpink');
         return false

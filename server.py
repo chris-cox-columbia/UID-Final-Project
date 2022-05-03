@@ -79,13 +79,11 @@ def postAnswers():
     global studentAnswers
 
     answerObj = request.get_json()
-    print(answerObj)
 
     id = answerObj["id"]
 
     studentAnswers[id] = answerObj
 
-    print(studentAnswers)
     additionInfo = studentAnswers[id]
     return jsonify(additionInfo=additionInfo)
 
