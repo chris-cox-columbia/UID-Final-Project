@@ -13,6 +13,12 @@ body{
     margin: 0px;
 }
 
+#instructions {
+  padding-top:10px;
+  font-size: 14px;
+  text-align: center;
+}
+
 .score_circle{
   height: 50px;
   width: 50px;
@@ -53,7 +59,8 @@ body{
 .drag {
   background-color: #DDEEF8;
   border-radius: 5px;
-  margin-right: 15px;
+  margin-left: 7.5px;
+  margin-right: 7.5px;
   margin-bottom: 15px;
   text-align: center;
   padding: 10px;
@@ -94,6 +101,7 @@ body{
   background-color: #DDEEF8;
   border-radius: 5px;
   margin-right: 15px;
+  margin-bottom: 15px;
   text-align: center;
   padding: 10px;
 }

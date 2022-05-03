@@ -162,13 +162,16 @@ function makeRed(index){
   $("#"+index).css({'background-color':'#F1CAB7'})
 }
 
-function buttonAnswer(){
-  let button = $('<button class="answer_button">CHECK ANSWER</button>')
+function buttonAnswer(text){
+  let button = $('<button class="answer_button">'+text+'</button>')
   $(button).click(function(){
+    $("#answer").empty()
     check(drink)
     updateScore()
+    buttonAnswer("TRY AGAIN")
   })
   $("#answer").append(button)
+  $("#answer").append("<span id='instructions'>Note: Once you've answered the first time, any further attempts will no longer count toward your score.</span>")
 }
 
 // on ready
@@ -177,7 +180,7 @@ $(document).ready(function(){
   initialize(questionDetails.options)
   pushIngredients(images)
   pushDrink()
-  buttonAnswer()
+  buttonAnswer("CHECK ANSWER")
 
   let next = questionDetails.next;
   $("#next_button").click(function(){
