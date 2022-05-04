@@ -27,7 +27,7 @@ function addIngredients(index, object, images){
 
 // check answer
 function buttonAnswer(){
-  let button = $('<button class="answer_button">CHECK ANSWER</button>')
+  let button = $('<button class="answer_button_ratios">CHECK ANSWER</button>')
   $(button).click(function(){
     let submission = buildAnswer()
     check(submission)

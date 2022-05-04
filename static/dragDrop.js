@@ -120,14 +120,14 @@ function updateScore(){
   });
 }
 
-function check(submission){
+function check(submission, questionId){
 
   var hold = {}
   hold.answer=toString(submission)
 
   $.ajax({
       type: "POST",
-      url: "/quiz/1",
+      url: "/quiz/"+questionId,
       dataType : "json",
       contentType: "application/json; charset=utf-8",
       data : JSON.stringify(hold),
@@ -162,10 +162,10 @@ function makeRed(index){
   $("#"+index).css({'background-color':'#F1CAB7'})
 }
 
-function buttonAnswer(){
+function buttonAnswer(questionId){
   let button = $('<button class="answer_button">CHECK ANSWER</button>')
   $(button).click(function(){
-    check(drink)
+    check(drink, questionId)
     updateScore()
   })
   $("#answer").append(button)
@@ -173,11 +173,12 @@ function buttonAnswer(){
 
 // on ready
 $(document).ready(function(){
+  let questionId = questionDetails.id
   updateScore()
   initialize(questionDetails.options)
   pushIngredients(images)
   pushDrink()
-  buttonAnswer()
+  buttonAnswer(questionId)
 
   let next = questionDetails.next;
   $("#next_button").click(function(){
