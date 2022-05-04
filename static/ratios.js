@@ -25,15 +25,7 @@ function addIngredients(index, object, images){
   $("#main_row").append(new_row)
 }
 
-// check answer
-function buttonAnswer(){
-  let button = $('<button class="answer_button_ratios">CHECK ANSWER</button>')
-  $(button).click(function(){
-    let submission = buildAnswer()
-    check(submission)
-  })
-  $("#answer").append(button)
-}
+
 
 function buildAnswer(){
   let submission = {}
@@ -117,7 +109,6 @@ function makeRed(index){
 $(document).ready(function(){
   initialize(questionDetails)
   pushIngredients(images)
-  buttonAnswer()
   updateScore()
 
   let next = questionDetails.next;
@@ -144,4 +135,9 @@ $(document).ready(function(){
         window.location.replace(url);
       }
     })
+
+  $('#answer_button').click(function(){
+    let submission = buildAnswer()
+    check(submission)
+  })
 })
