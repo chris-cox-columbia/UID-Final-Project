@@ -24,6 +24,9 @@ body {
     background-color: #008CBA;
     font-family: 'Montserrat';
 }
+.button1:hover {
+    background-color: #465362;;
+}
 .navbar {
     background-color: #DDEEF8;
 }

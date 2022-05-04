@@ -148,6 +148,10 @@ body{
   cursor: pointer;
   background-color: #465362;
   position: relative;
+  font-family: 'Montserrat';
+}
+.quiz_button:hover {
+  background-color: lightgray;
 }
 .check_answer {
   margin:auto;
@@ -157,4 +161,7 @@ body{
   border-radius: 25px;
   background-color: lightpink;
   font-family: 'Muli', sans-serif;
+}
+.check_answer:hover {
+  background-color: #DDEEF8;
 }
