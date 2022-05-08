@@ -25,18 +25,7 @@ function addIngredients(index, object, images){
   $("#main_row").append(new_row)
 }
 
-// check answer
-function buttonAnswer(text){
-  let button = $('<button class="answer_button">'+text+'</button>')
-  $(button).click(function(){
-    $("#answer").empty()
-    check(drink)
-    updateScore()
-    buttonAnswer("TRY AGAIN")
-  })
-  $("#answer").append(button)
-  $("#answer").append("<span id='instructions'>Note: Once you've answered the first time, any further attempts will no longer count toward your score.</span>")
-}
+
 
 function buildAnswer(){
   let submission = {}
@@ -78,7 +67,7 @@ function updateScore(){
       success: function(result){
         console.log("Score: ", result)
         // change the text of the score id div
-        $("#score").text(   result + "/10"  )
+        $("#score").text(   result + "/9"  )
       },
       error: function(request, status, error){
           console.log("Error");
@@ -120,7 +109,6 @@ function makeRed(index){
 $(document).ready(function(){
   initialize(questionDetails)
   pushIngredients(images)
-  buttonAnswer("CHECK ANSWER")
   updateScore()
 
   let next = questionDetails.next;
@@ -147,4 +135,9 @@ $(document).ready(function(){
         window.location.replace(url);
       }
     })
+
+  $('#answer_button').click(function(){
+    let submission = buildAnswer()
+    check(submission)
+  })
 })

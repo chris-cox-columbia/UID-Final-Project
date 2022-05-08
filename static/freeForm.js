@@ -20,7 +20,7 @@ function updateScore(){
       success: function(result){
         console.log("Score: ", result)
         // change the text of the score id div
-        $("#score").text(   result + "/10"  )
+        $("#score").text(   result + "/9"  )
       },
       error: function(request, status, error){
           console.log("Error");

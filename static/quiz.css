@@ -122,6 +122,18 @@ body{
   font-family: 'Muli', sans-serif;
 
 }
+
+.answer_button_ratios{
+  margin:auto;
+  width: 300px;
+  border: 0px;
+  font-size: 24px;
+  border-radius: 5px;
+  background-color: #F4DB90;
+  font-family: 'Muli', sans-serif;
+  position: relative;
+  top: 40px;
+}
 .answer_button:hover {
   background-color: #DDEEF8;
 }
@@ -145,6 +157,10 @@ body{
   cursor: pointer;
   background-color: #465362;
   position: relative;
+  font-family: 'Montserrat';
+}
+.quiz_button:hover {
+  background-color: lightgray;
 }
 .check_answer {
   margin:auto;
@@ -154,4 +170,7 @@ body{
   border-radius: 25px;
   background-color: lightpink;
   font-family: 'Muli', sans-serif;
+}
+.check_answer:hover {
+  background-color: #DDEEF8;
 }

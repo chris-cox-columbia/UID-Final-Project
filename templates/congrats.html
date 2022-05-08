@@ -6,6 +6,7 @@
 
 {% block content %}
 
+<script type="text/javascript" src="{{ url_for('static', filename = 'congrats.js') }}"></script>
 
 
 <div class="confetti">
@@ -43,7 +44,7 @@
   </div>
   <div class="col-12">
     <div class="centered">
-      <p style="font-size: 50px"> x/x </p> 
+      <p style="font-size: 50px" id="score"> x/x </p> 
     </div>
   </div>
 </div>

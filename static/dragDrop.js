@@ -109,7 +109,7 @@ function updateScore(){
       success: function(result){
         console.log("Score: ", result)
         // change the text of the score id div
-        $("#score").text(   result + "/10"  )
+        $("#score").text(   result + "/9"  )
       },
       error: function(request, status, error){
           console.log("Error");
@@ -120,14 +120,14 @@ function updateScore(){
   });
 }
 
-function check(submission){
+function check(submission, questionId){
 
   var hold = {}
   hold.answer=toString(submission)
 
   $.ajax({
       type: "POST",
-      url: "/quiz/1",
+      url: "/quiz/"+questionId,
       dataType : "json",
       contentType: "application/json; charset=utf-8",
       data : JSON.stringify(hold),
@@ -162,25 +162,23 @@ function makeRed(index){
   $("#"+index).css({'background-color':'#F1CAB7'})
 }
 
-function buttonAnswer(text){
-  let button = $('<button class="answer_button">'+text+'</button>')
+function buttonAnswer(questionId){
+  let button = $('<button class="answer_button">CHECK ANSWER</button>')
   $(button).click(function(){
-    $("#answer").empty()
-    check(drink)
+    check(drink, questionId)
     updateScore()
-    buttonAnswer("TRY AGAIN")
   })
   $("#answer").append(button)
-  $("#answer").append("<span id='instructions'>Note: Once you've answered the first time, any further attempts will no longer count toward your score.</span>")
 }
 
 // on ready
 $(document).ready(function(){
+  let questionId = questionDetails.id
   updateScore()
   initialize(questionDetails.options)
   pushIngredients(images)
   pushDrink()
-  buttonAnswer("CHECK ANSWER")
+  buttonAnswer(questionId)
 
   let next = questionDetails.next;
   $("#next_button").click(function(){

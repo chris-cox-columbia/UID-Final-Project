@@ -59,7 +59,6 @@ def renderQuestion(questionId=None):
             return render_template("ratios.html",questionDetails=questionDetails, images=images)
         else:
             user_data = dict(request.get_json())
-            print("data", user_data)
             result = check_ratios(questionId, user_data)
             update_visit_time(f"/quiz/{questionId}")
             return jsonify(result)
@@ -93,6 +92,7 @@ def check_drag_and_drop(questionId, user_answers):
     global score
     correct_answers = questions[questionId]['answer'
     ]
+    print("CORRECT ANSWERS", correct_answers)
     is_correct = True
     response = {
         'correct': [],
@@ -115,7 +115,6 @@ def check_drag_and_drop(questionId, user_answers):
             response['missing'].append(answer)
             is_correct = False
 
-    print(visit_times)
     # If the user already answered this question, do not update their score
     url = f"/quiz/{questionId}"
 
@@ -124,7 +123,6 @@ def check_drag_and_drop(questionId, user_answers):
         score += 1
         correctlyAnsweredQ.add(questionId)
 
-    print("Score=",score)
 
     return response
 
@@ -148,7 +146,6 @@ def check_ratios(questionId, user_answers):
             item = ingredient, correct_answer[ingredient]
             response['incorrect'].append(item)
             is_correct = False
-    print(visit_times)
 
     url = f"/quiz/{questionId}"
     if is_correct and questionId not in correctlyAnsweredQ:
