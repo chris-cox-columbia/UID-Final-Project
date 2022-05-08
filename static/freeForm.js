@@ -36,8 +36,8 @@ function makeRowColor(i, color){
 }
 
 function makeRatioRed(i){
-        $("#ing"+i.toString()).css({'background-color':'lightgreen'});
-        $("#rat"+i.toString()).css({'background-color':'lightpink'});
+        $("#ing"+i.toString()).css({'background-color':'#E7F2D6'});
+        $("#rat"+i.toString()).css({'background-color':'#F1CAB7'});
 }
 
 
@@ -156,7 +156,7 @@ $(document).ready(function(){
             window.location.replace(url);
         }
         })
-    
+
     let id = questionDetails.id;
     $('#back_button').click(function(){
         if(id=="1"){

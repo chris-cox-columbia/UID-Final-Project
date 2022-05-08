@@ -26,13 +26,16 @@ function addIngredients(index, object, images){
 }
 
 // check answer
-function buttonAnswer(){
-  let button = $('<button class="answer_button">CHECK ANSWER</button>')
+function buttonAnswer(text){
+  let button = $('<button class="answer_button">'+text+'</button>')
   $(button).click(function(){
-    let submission = buildAnswer()
-    check(submission)
+    $("#answer").empty()
+    check(drink)
+    updateScore()
+    buttonAnswer("TRY AGAIN")
   })
   $("#answer").append(button)
+  $("#answer").append("<span id='instructions'>Note: Once you've answered the first time, any further attempts will no longer count toward your score.</span>")
 }
 
 function buildAnswer(){
@@ -117,7 +120,7 @@ function makeRed(index){
 $(document).ready(function(){
   initialize(questionDetails)
   pushIngredients(images)
-  buttonAnswer()
+  buttonAnswer("CHECK ANSWER")
   updateScore()
 
   let next = questionDetails.next;

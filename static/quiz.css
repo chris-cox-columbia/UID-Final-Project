@@ -112,7 +112,8 @@ body{
 }
 
 .answer_button{
-  margin:auto;
+  margin: auto;
+  float: right;
   width: 300px;
   border: 0px;
   font-size: 24px;
